@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            PhotoFancy.at - Foto bearbeiten
+        </title>
+        <css src="Photofancy_Editor::css/source/module.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Photofancy\Editor\Block\Editor" name="editor.photo" template="Photofancy_Editor::editor.phtml" />
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+
+    </body>
+</page>

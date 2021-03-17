@@ -1,18 +1,101 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+### Magento2 ###
+/.buildpath
+/.cache
+/.metadata
+/.project
+/.settings
+/.vscode
+atlassian*
+/nbproject
+/robots.txt
+/pub/robots.txt
+/sitemap
+/sitemap.xml
+/pub/sitemap
+/pub/sitemap.xml
+/.idea
+/.gitattributes
+/app/config_sandbox
+/app/etc/config.php
+/app/etc/env.php
+/app/code/Magento/TestModule*
+/lib/internal/flex/uploader/.actionScriptProperties
+/lib/internal/flex/uploader/.flexProperties
+/lib/internal/flex/uploader/.project
+/lib/internal/flex/uploader/.settings
+/lib/internal/flex/varien/.actionScriptProperties
+/lib/internal/flex/varien/.flexLibProperties
+/lib/internal/flex/varien/.project
+/lib/internal/flex/varien/.settings
+/node_modules
+/.grunt
+/Gruntfile.js
+/package.json
+/.php_cs
+/.php_cs.cache
+/grunt-config.json
+/pub/media/*.*
+!/pub/media/.htaccess
+/pub/media/attribute/*
+!/pub/media/attribute/.htaccess
+/pub/media/analytics/*
+/pub/media/catalog/*
+!/pub/media/catalog/.htaccess
+/pub/media/customer/*
+!/pub/media/customer/.htaccess
+/pub/media/downloadable/*
+!/pub/media/downloadable/.htaccess
+/pub/media/favicon/*
+/pub/media/import/*
+!/pub/media/import/.htaccess
+/pub/media/logo/*
+/pub/media/custom_options/*
+!/pub/media/custom_options/.htaccess
+/pub/media/theme/*
+/pub/media/theme_customization/*
+!/pub/media/theme_customization/.htaccess
+/pub/media/wysiwyg/*
+!/pub/media/wysiwyg/.htaccess
+/pub/media/tmp/*
+!/pub/media/tmp/.htaccess
+/pub/media/captcha/*
+/pub/static/*
+!/pub/static/.htaccess
 
-# Other files and folders
-.settings/
+/var/*
+!/var/.htaccess
+/vendor/*
+!/vendor/.htaccess
+/generated/*
+!/generated/.htaccess
+.DS_Store
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+### OSX ###
+# General
+.AppleDouble
+.LSOverride
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+.idea

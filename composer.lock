@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5fefcae54a1ea39820a02f7a086a48e",
+    "content-hash": "b2f7fcd2b70229522b66468110d7a1bb",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -23856,6 +23856,73 @@
                 "proprietary"
             ],
             "description": "Tools for communicating with Vertex Cloud and Vertex O-Series"
+        },
+        {
+            "name": "vianetz/module-advancedinvoicelayout",
+            "version": "1.7.2",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:vianetz/magento2-advancedinvoicelayout.git",
+                "reference": "7578236709b973124741ff99301c3cc1bbfa945a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.vianetz.com/60495b4e033e9f60b32a6607b587aadd/dist/vianetz/module-advancedinvoicelayout/vianetz-module-advancedinvoicelayout-1.7.2-289455.zip",
+                "reference": "7578236709b973124741ff99301c3cc1bbfa945a",
+                "shasum": "bddf66e323384d36f518c66b109f1d12b391d426"
+            },
+            "require": {
+                "magento/framework": "^100.1|^101.0|^102.0|^103.0",
+                "magento/module-backend": "^100.1|^101.0|^102.0|^103.0",
+                "magento/module-customer": "^100.1|^101.0|^102.0|^103.0",
+                "magento/module-sales": "^100.1|^101.0|^102.0|^103.0",
+                "magento/module-store": "^100.1|^101.0|^102.0|^103.0",
+                "php": "^5.6|^7|^8",
+                "psr/log": "*",
+                "vianetz/module-core": "^1.0",
+                "vianetz/pdf-generator": "^2.1"
+            },
+            "require-dev": {
+                "bitexpert/phpstan-magento": "dev-master",
+                "phpro/grumphp": "*",
+                "phpro/grumphp-shim": "^0.17.2",
+                "phpstan/phpstan": "^0.11.6|^0.12",
+                "roave/security-advisories": "dev-master",
+                "vianetz/coding-standards": "dev-master"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Vianetz\\AdvancedInvoiceLayout\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Massmann",
+                    "email": "cm@vianetz.com",
+                    "homepage": "https://www.vianetz.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The vianetz Advanced Invoice Layout extension for Magento 2 to easily customize your invoice/shipment/creditmemo pdf templates.",
+            "homepage": "https://www.vianetz.com/advancedinvoicelayout",
+            "keywords": [
+                "advancedinvoicelayout",
+                "magento",
+                "pdf",
+                "vianetz"
+            ],
+            "support": {
+                "email": "support@vianetz.com",
+                "faq": "https://www.vianetz.com/en/magento-faq"
+            },
+            "time": "2021-02-22T06:52:09+00:00"
         },
         {
             "name": "vianetz/module-core",

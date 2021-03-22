@@ -39,6 +39,7 @@
         "mpdf/mpdf": "^8.0",
         "payone-gmbh/magento-2": "^3.2",
         "splendidinternet/mage2-locale-de-de": "^1.63",
+        "vianetz/module-advancedinvoicelayout": "^1.7",
         "vianetz/module-core": "^1.0",
         "vianetz/pdf-generator": "^2.0",
         "wyomind/cronscheduler": "^1.10",
@@ -97,6 +98,10 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": {
+        "vianetz_packages": {
+            "type": "composer",
+            "url": "https://packages.vianetz.com/60495b4e033e9f60b32a6607b587aadd"
+        },
         "mageworx_packages": {
             "type": "composer",
             "url": "https://packages.mageworx.com/"

@@ -377,6 +377,7 @@ return [
         'Vertex_AddressValidationApi' => 1,
         'Vertex_AddressValidation' => 1,
         'Vianetz_Core' => 1,
+        'Vianetz_AdvancedInvoiceLayout' => 1,
         'WeltPixel_Backend' => 1,
         'WeltPixel_AdvancedWishlist' => 0,
         'WeltPixel_AjaxInfiniteScroll' => 1,

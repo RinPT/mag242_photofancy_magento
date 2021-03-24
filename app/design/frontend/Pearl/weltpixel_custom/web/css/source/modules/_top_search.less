@@ -1,0 +1,53 @@
+:root {
+    & .page-header {
+
+        & .block-search {
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            @media (min-width: 768px) {
+
+                position: initial !important;
+                float: right !important;
+                margin-right: 10px !important;
+                margin-top: 0 !important;
+                padding: 0 5px !important;
+
+            }
+
+            input {
+                margin-bottom: 0 !important;
+
+                @media (min-width: 768px) {
+                    margin-bottom: 15px;
+                }
+            }
+
+        }
+
+    }
+}
+
+#algolia-searchbox {
+
+    & .algolia-search-input {
+
+        width: 100% !important;
+        border: none !important;
+
+        &:focus {
+            background: @color-background-default !important;
+            border: none !important;
+
+            &:not([value=""]) {
+                background: @color-background-default !important;
+            }
+        }
+    }
+
+    & .magnifying-glass {
+        bottom: 10px !important;
+    }
+
+}

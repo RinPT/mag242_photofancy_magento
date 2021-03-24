@@ -1,0 +1,77 @@
+<?php $_shipment = $block->getShipment() ?>
+<?php $_order = $block->getOrder() ?>
+<?php if ($_order && $_shipment):?>
+    <?php $trackCollection = $_order->getTracksCollection($_shipment->getId()) ?>
+    <?php if ($trackCollection): ?>
+        <br />
+        <table class="shipment-track">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th><?= /* @escapeNotVerified */  __('Shipped By') ?></th>
+                <th><?= /* @escapeNotVerified */  __('Tracking Number') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($trackCollection as $_item): ?>
+                <tr>
+                    <?php
+                    $logo_path = $block->getBaseUrl() . '/skin/frontend/photofancy/images/logos/';
+                    $logo_name = null;
+                    $carrier_url = null;
+                    switch ($_item->getCarrierCode()) {
+                        case 'dpdhlat':
+                            $logo_name = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_logos/carrier_logo_url_dpdhlat');
+                            $carrier_url = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_urls/carrier_tracking_url_dpdhlat');
+                            break;
+
+                        case 'dphermes':
+                            $logo_name = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_logos/carrier_tracking_url_dphermes');
+                            $carrier_url = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_urls/carrier_tracking_url_dphermes');
+                            break;
+
+                        case 'dppostch':
+                            $logo_name = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_logos/carrier_logo_url_dppostch');
+                            $carrier_url = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_urls/carrier_tracking_url_dppostch');
+                            break;
+
+                        case 'dpups':
+                            $logo_name = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_logos/carrier_logo_url_dpups');
+                            $carrier_url = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_urls/carrier_tracking_url_dpups');
+                            break;
+
+                        case 'dpdhl':
+                            $logo_name = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_logos/carrier_logo_url_dpdhl');
+                            $carrier_url = $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_shipping_carrier_settings/photofancy_shipping_carrier_urls/carrier_tracking_url_dpdhl');
+                            break;
+                    }
+                    ?>
+
+                    <?php if ($logo_name === null):?>
+
+                        <td></td>
+
+                    <?php else: ?>
+
+                        <td><object type="image/svg+xml" data="<?= $logo_path . $logo_name ?>" width="80"></object></td>
+
+                    <?php endif; ?>
+
+                    <td><?= $block->escapeHtml($_item->getTitle()) ?>:</td>
+
+                    <?php if ($carrier_url === null):?>
+
+                        <td><?= $block->escapeHtml($_item->getNumber()) ?></td>
+
+                    <?php else: ?>
+
+                        <td><a href="<?= $block->escapeHtml($carrier_url) . $block->escapeHtml($_item->getNumber()) ?>"><?= $block->escapeHtml($_item->getNumber()) ?></a></td>
+
+                    <?php endif; ?>
+
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+<?php endif; ?>

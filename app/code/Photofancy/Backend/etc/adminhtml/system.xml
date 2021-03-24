@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="photofancy" translate="label" sortOrder="400">
+            <label>PhotoFancy</label>
+        </tab>
+        <section id="photofancy_settings" translate="label" type="text" sortOrder="1001" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>Settings</label>
+            <tab>photofancy</tab>
+            <resource>Photofancy_Backend::settings_config</resource>
+
+            <group id="photofancy_settings_general" translate="label" type="text" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="note" translate="label comment" type="note" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label></label>
+                    <comment>
+                        <![CDATA[<div><strong>PhotoFancy Settings Extension - v1.1.0 for Magento 2</strong></div>]]></comment>
+                </field>
+
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+            </group>
+
+            <group id="custom_gateway_orderit" translate="label" type="text" sortOrder="20" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Custom Gateway OrderIT Settings</label>
+
+                <field id="api_url" translate="label comment" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>API URL</label>
+                </field>
+
+                <field id="company_ref_id" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Company Ref ID</label>
+                </field>
+
+                <field id="apikey" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>API Key</label>
+                </field>
+            </group>
+
+            <group id="photofancy_editor" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>PhotoFancy Editor Settings</label>
+
+                <field id="service_url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Service URL</label>
+                </field>
+
+                <field id="async" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Asyncron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="timeout" translate="label comment" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Timeout</label>
+                    <comment>Set the timeout in seconds</comment>
+                </field>
+            </group>
+
+            <group id="photofancy_frontend_layout" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>PhotoFancy Layout Settings</label>
+
+                <field id="pf_category_filter" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Kategorie Filter</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Den Filter "Einkaufen nach..." anzeigen (Ja/Nein)</comment>
+                </field>
+
+                <field id="pf_product_price_details" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Produkt Preis Details</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Preis Details (MwSt. &amp; Versandkosten) anzeigen</comment>
+                </field>
+
+                <field id="pf_product_price_details_tax_value" translate="label" type="select" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>MwSt. Wert Anzeigen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>MwSt. Satz (in %) in den Preis Details anzeigen</comment>
+                </field>
+
+            </group>
+
+            <group id="photofancy_support_options" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Support Options</label>
+
+                <field id="pf_support_times" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Support Times</label>
+                </field>
+
+                <field id="pf_support_hotline" translate="label" type="text" sortOrder="2" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Support Hotline</label>
+                </field>
+
+                <field id="pf_support_hotline_html" translate="label comment" type="text" sortOrder="3" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Support Hotline (HTML)</label>
+                    <comment>komplette HTML Ausgabe, z.B. für Verlinkungen</comment>
+                </field>
+
+            </group>
+
+        </section>
+
+        <section id="photofancy_shipping_carrier_settings" translate="label" type="text" sortOrder="1002"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Shipping Carrier Settings</label>
+            <tab>photofancy</tab>
+            <resource>Photofancy_Backend::settings_config</resource>
+
+            <group id="photofancy_shipping_carrier_logos" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Shipping Carrier Logos</label>
+
+                <field id="carrier_logo_url_dpdhl" translate="label comment" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Carrier Logo for DHL (dpdhl)</label>
+                </field>
+
+                <field id="carrier_logo_url_dpdhlat" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Logo for DHL &amp; Post.at (dpdhlat)</label>
+                </field>
+
+                <field id="carrier_logo_url_dpups" translate="label comment" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Carrier Logo for UPS (dpups)</label>
+                </field>
+
+                <field id="carrier_logo_url_dppostch" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Logo for SWISS POST (dppostch)</label>
+                </field>
+
+                <field id="carrier_logo_url_dphermes" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Logo for Hermes (dphermes)</label>
+                </field>
+            </group>
+
+            <group id="photofancy_shipping_carrier_urls" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Shipping Carrier URLs</label>
+
+                <field id="carrier_tracking_url_dpdhl" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Tracking URL for DHL (dpdhl)</label>
+                </field>
+
+                <field id="carrier_tracking_url_dpdhlat" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Tracking URL for DHL &amp; Post.at (dpdhlat)</label>
+                </field>
+
+                <field id="carrier_tracking_url_dpups" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Tracking URL for UPS (dpups)</label>
+                </field>
+
+                <field id="carrier_tracking_url_dppostch" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Tracking URL for SWISS POST (dppostch)</label>
+                </field>
+
+                <field id="carrier_tracking_url_dphermes" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Carrier Tracking URL for Hermes (dphermes)</label>
+                </field>
+
+            </group>
+
+        </section>
+
+        <section id="photofancy_happyfox_settings" translate="label" type="text" sortOrder="1003"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>HappyFox Settings</label>
+            <tab>photofancy</tab>
+            <resource>Photofancy_Backend::settings_config</resource>
+
+            <group id="photofancy_happyfox_settings_general" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="pf_happyfox_activated" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Activated</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="pf_happyfox_chat_token" translate="label comment" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Chat Token</label>
+                </field>
+            </group>
+        </section>
+
+        <section id="photofancy_cookiefirst_settings" translate="label" sortOrder="1004" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>CookieFirst Settings</label>
+            <tab>photofancy</tab>
+            <resource>Photofancy_Backend::settings_config</resource>
+
+            <group id="photofancy_cookiefirst_settings_general" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="pf_cookiefirst_activated" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Activated</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="pf_cookiefirst_api_key" translate="label" type="text" sortOrder="1"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                </field>
+            </group>
+        </section>
+
+    </system>
+</config>

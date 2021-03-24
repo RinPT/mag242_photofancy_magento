@@ -1,0 +1,196 @@
+<?php
+/**
+ * AdvancedInvoiceLayout Pdf invoice template
+ *
+ * @section LICENSE
+ * This file is created by vianetz <info@vianetz.com>.
+ * The Magento module is distributed under a commercial license.
+ * Any redistribution, copy or direct modification is explicitly not allowed.
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@vianetz.com so we can send you a copy immediately.
+ *
+ * @package     Vianetz\AdvancedInvoiceLayout
+ * @author      Christoph Massmann, <cm@vianetz.com>
+ * @link        https://www.vianetz.com
+ * @copyright   Copyright (c) since 2006 vianetz - Dipl.-Ing. C. Massmann (https://www.vianetz.com)
+ * @license     https://www.vianetz.com/license Commercial Software License
+ */
+
+/**
+ * @var $this \Vianetz\AdvancedInvoiceLayout\Block\Pdf\Invoice
+ */
+?>
+
+<?php // Header and footer blocks have to be at the beginning of the file and must be a direct descendant of the body element to work properly.?>
+<?php echo $this->getChildHtml('header'); ?>
+<?php echo $this->getChildHtml('footer'); ?>
+
+<table id="addressWindow">
+    <tr>
+        <td>
+            <div id="senderAddress"><?php echo $this->getSenderAddress(); ?></div>
+        </td>
+        <?php if ($this->isShowSecondaryAddress() === true): ?>
+            <td></td>
+        <?php endif; ?>
+    </tr>
+    <tr>
+        <td>
+            <div id="billingAddress">
+                <?php echo $this->getBillingAddress(); ?>
+            </div>
+        </td>
+        <?php if ($this->isShowSecondaryAddress() === true): ?>
+            <td>
+                <div id="shippingAddress">
+                    <?php echo $this->getShippingAddress(); ?>
+                </div>
+            </td>
+        <?php endif; ?>
+    </tr>
+</table>
+
+<?php if ($this->getCustomerEmail()): ?>
+    <div id="customerEmail"><?php echo $this->translate('Customer Email: %1', $this->getCustomerEmail()); ?></div>
+<?php endif; ?>
+
+<?php if ($this->getCustomerTaxVatNumber()): ?>
+    <div
+        id="customerTaxVatNumber"><?php echo $this->translate('TAX/VAT Number: %1', $this->getCustomerTaxVatNumber()); ?></div>
+<?php endif; ?>
+
+<div id="invoiceTitle">
+    <?php echo $this->translate('Invoice #%1', $this->getSource()->getIncrementId()); ?>
+</div>
+
+<div id="invoiceData">
+    <div id="invoiceDate"><?php echo $this->translate('Invoice Date: %1', $this->getSourceDate()); ?></div>
+    <div id="orderNumber"><?php echo $this->translate('Order No.: %1', $this->getOrder()->getIncrementId()); ?></div>
+    <div id="orderDate"><?php echo $this->translate('Order Date: %1', $this->getOrderDate()); ?></div>
+    <?php if ($this->getCustomerId()): ?>
+        <div id="customerNumber"><?php echo $this->translate('Customer No.: %1', $this->getCustomerId()); ?></div>
+    <?php endif; ?>
+</div>
+
+<table id="paymentAndShippingData" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="paymentMethodData">
+            <div class="methodTitle"><?php echo $this->translate('Payment Method'); ?></div>
+            <div class="methodText">
+                <?php
+                switch ($this->getOrder()->getPayment()->getMethod()) {
+                    case "checkmo":
+                        echo $this->translate('Rechnung');
+                        break;
+                    case "banktransfer":
+                        echo $this->translate('Vorkasse');
+                        break;
+                    case "payone_creditcard":
+                        echo $this->translate('Kreditkarte');
+                        break;
+                    case "paypal_express":
+                        echo $this->translate('PayPal');
+                        break;
+                    case "datatranscw_visa":
+                        echo $this->translate('Kreditkarte VISA');
+                        break;
+                    case "datatranscw_mastercard":
+                        echo $this->translate('Kreditkarte MasterCard');
+                        break;
+                    case "payone_obt_sofortueberweisung":
+                        echo $this->translate('Sofortüberweisung');
+                        break;
+                    case "payone_obt_eps":
+                        echo $this->translate('EPS Überweisung');
+                        break;
+                    default:
+                        echo $this->getPaymentMethodText();
+                        break;
+                }
+                ?>
+            </div>
+        </td>
+        <td id="shippingMethodData">
+            <?php if ($this->getOrder()->getShippingDescription()): ?>
+                <div class="methodTitle"><?php echo $this->translate('Shipping Method'); ?></div>
+                <div class="methodText"><p><?php echo $this->getOrder()->getShippingDescription(); ?></p></div>
+            <?php endif; ?>
+        </td>
+    </tr>
+</table>
+
+<?php if ($this->getSalutationText()): ?>
+    <p>
+        <?php echo $this->getSalutationText(); ?>
+    </p>
+<?php endif; ?>
+
+<table id="itemTable">
+    <thead>
+    <tr>
+        <th class="columnSku"><?php echo $this->translate('Preview'); ?></th>
+        <th class="columnName"><?php echo $this->translate('Product Name'); ?></th>
+        <th class="columnQty"><?php echo $this->translate('Qty'); ?></th>
+        <th class="columnPrice"><?php echo $this->translate('Price'); ?></th>
+        <th class="columnRowTotal"><?php echo $this->translate('Row Total'); ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->getItems() as $sourceItem): ?>
+        <?php echo $this->getItemHtml($sourceItem); ?>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php echo $this->getChildHtml('totals'); ?>
+
+<?php if ($this->getCouponCode()): ?>
+    <p id="couponBox"><b><?php echo $this->translate('Used coupon code: %1', $this->getCouponCode()); ?></b></p>
+<?php endif; ?>
+
+<?php if ($this->getBillsafeFreetext()): ?>
+    <p><?php echo $this->getBillsafeFreetext(); ?></p>
+<?php endif; ?>
+
+<?php if ($this->getGiftMessage()): ?>
+    <p>
+        <?php echo $this->translate('Message from: %1', $this->getGiftMessage()->getSender()); ?><br/>
+        <?php echo $this->translate('Message to: %1', $this->getGiftMessage()->getRecipient()); ?><br/>
+        <?php echo $this->getGiftMessage()->getMessage(); ?>
+    </p>
+<?php endif; ?>
+
+<?php // Show customer invoice comments (if enabled)?>
+<?php if ($this->isShowCustomerSourceComments()): ?>
+    <p>
+        <?php foreach ($this->getSource()->getCommentsCollection() as $comment): ?>
+            <?php if ($comment->getIsVisibleOnFront()): ?>
+                <?php echo $comment->getComment(); ?><br/>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </p>
+<?php endif; ?>
+
+<?php // Show customer order comments (if enabled)?>
+<?php if ($this->isShowCustomerOrderComments()): ?>
+    <p>
+        <?php foreach ($this->getOrder()->getVisibleStatusHistory() as $comment): ?>
+            <?php echo $comment->getComment(); ?><br/>
+        <?php endforeach; ?>
+    </p>
+    <?php // Support for OneStepCheckout extension comments?>
+    <?php if ($this->getOrder()->getOnestepcheckoutCustomercomment()): ?>
+        <?php echo $this->getOrder()->getOnestepcheckoutCustomercomment(); ?>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($this->getCustomerGroupSpecificFreetext()): ?>
+    <p><?php echo $this->getCustomerGroupSpecificFreetext(); ?></p>
+<?php endif; ?>
+
+<?php if ($this->getConfiguredFreeTextWithPlaceholders()): ?>
+    <p><?php echo $this->getConfiguredFreeTextWithPlaceholders(); ?></p>
+<?php endif; ?>
+
+<?php echo $this->getFooterPageCountHtml(); ?>

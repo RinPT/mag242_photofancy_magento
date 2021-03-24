@@ -1,0 +1,115 @@
+.btt-button {
+  background-color: #ebebeb !important;
+  color: #666 !important;
+  border: 1px solid #cecece !important;
+
+  &:hover {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #cecece !important;
+  }
+}
+
+/* ----------------------------------------------------------------
+	wp-buttons
+-----------------------------------------------------------------*/
+.wp-button {
+    text-transform: none !important;
+    margin: 5px 0 !important;
+
+    &.wp-button-xlarge {
+        font-size: 1.75rem !important;
+        letter-spacing: 1px !important;
+        height: 98px !important;
+        line-height: 98px !important;
+        width: 100% !important;
+        text-align: center !important;
+
+        @media (min-width: 768px) {
+            font-size: 2rem !important;
+        }
+
+    }
+}
+
+.wp-button-3d, .wp-button-reveal {
+    &.wp-button-white {
+        &:hover {
+            background-color: @color-background-light-blue-hover !important;
+        }
+    }
+}
+
+.theme-pearl {
+
+    & .amgdprcookie-bar-container {
+
+        & .actions {
+            display: flex;
+            flex-direction: column-reverse;
+            margin: 12px !important;
+
+            @media (min-width: 768px) {
+                display: inherit;
+                margin-left: 0 !important;
+            }
+
+        }
+
+    }
+
+
+    button {
+
+        &.captcha-reload {
+
+            background-color: @color-background-default !important;
+            border: @color-photofancy-default 1px solid !important;
+
+            &:hover {
+                background-color: @color-photofancy-over !important;
+                border: @color-photofancy-over 1px solid !important;
+
+                span {
+                    color: @color-text-hell !important;
+                }
+            }
+
+            span {
+                color: @color-photofancy-default !important;
+                font-size: 14px !important;
+            }
+
+        }
+
+        &#btn-cookie-disallow {
+
+            background-color: transparent !important;
+            border: none !important;
+            float: none;
+            margin: 12px !important;
+
+            &:hover {
+                background-color: transparent !important;
+                border: none !important;
+
+                span {
+                    color: @color-photofancy-over !important;
+                }
+            }
+
+            span {
+                color: @color-photofancy-default !important;
+                font-size: 14px !important;
+            }
+
+            @media (min-width: 768px) {
+                float: left;
+                padding-left: 0 !important;
+                margin: 0 10px 0 0 !important;
+            }
+
+        }
+
+    }
+
+}

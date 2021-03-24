@@ -1,0 +1,72 @@
+<?php
+/**
+ * AdvancedInvoiceLayout Pdf invoice item template
+ *
+ * @section LICENSE
+ * This file is created by vianetz <info@vianetz.com>.
+ * The Magento module is distributed under a commercial license.
+ * Any redistribution, copy or direct modification is explicitly not allowed.
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@vianetz.com so we can send you a copy immediately.
+ *
+ * @package     Vianetz\AdvancedInvoiceLayout
+ * @author      Christoph Massmann, <cm@vianetz.com>
+ * @link        https://www.vianetz.com
+ * @copyright   Copyright (c) since 2006 vianetz - Dipl.-Ing. C. Massmann (https://www.vianetz.com)
+ * @license     https://www.vianetz.com/license Commercial Software License
+ */
+
+/**
+ * @var $this \Vianetz\AdvancedInvoiceLayout\Block\Pdf\Item\Invoice
+ */
+?>
+
+<tr>
+    <td class="columnSku">
+        <?php if ($this->isProductImagePath()): ?>
+            <img class="image" src="<?php echo $block->getBaseUrl() . $this->getProductImagePath(); ?>" />
+        <?php endif; ?>
+    </td>
+    <td class="columnName">
+        <strong class="productname"><?php echo $this->getItem()->getName(); ?></strong><br />
+
+        <span class="smallerFont"><strong>Artikelnr.:</strong> <?php echo $this->getItem()->getSku(); ?></span>
+
+        <span class="smallerFont">
+            <?php if ($this->getProductShortDescription()): ?>
+                <?php echo $this->getProductShortDescription(); ?><br/>
+            <?php endif; ?>
+
+            <?php if ($this->getItemOptions()): ?>
+                <ul class="itemOptionList">
+            <?php foreach ($this->getItemOptions() as $option): ?>
+                <?php if ($option['label'] !== "Personalisation Ref"): ?>
+                    <li><span class="itemOptionLabel"><?php echo $option['label']; ?>:</span> <?php echo $this->getOptionValue($option); ?></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <?php if ($this->getProductAdditionalAttributes()): ?>
+                <ul>
+            <?php foreach ($this->getProductAdditionalAttributes() as $attribute): ?>
+                <li><?php echo $attribute['label']; ?>: <?php echo $attribute['value']; ?></li>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+
+            <?php if ($this->getDownloadLinks()): ?>
+                <ul class="downloadableLinks">
+            <?php foreach ($this->getDownloadLinks() as $downloadLink): ?>
+                <li><a href="<?php echo $downloadLink->getLink(); ?>"><?php echo $downloadLink->getLinkTitle(); ?></a></li>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </span>
+    </td>
+    <td class="columnQty"><?php echo $this->getItemQty($this->getItem()); ?></td>
+    <td class="columnPrice"><?php echo $this->formatPrice($this->getItemPrice($this->getItem())); ?></td>
+    <td class="columnRowTotal"><?php echo $this->formatPrice($this->getItemRowTotal($this->getItem())); ?></td>
+</tr>

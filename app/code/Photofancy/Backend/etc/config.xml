@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <photofancy>
+            <photofancy_settings_general>
+                <enable>0</enable>
+                <titten>1</titten>
+            </photofancy_settings_general>
+            <custom_gateway_orderit>
+                <api_url></api_url>
+                <company_ref_id></company_ref_id>
+                <apikey></apikey>
+            </custom_gateway_orderit>
+            <photofancy_editor>
+                <service_url></service_url>
+                <async>1</async>
+                <timeout>100</timeout>
+            </photofancy_editor>
+            <photofancy_frontend_layout>
+                <pf_category_filter>1</pf_category_filter>
+                <pf_product_price_details>1</pf_product_price_details>
+                <pf_product_price_details_tax_value>1</pf_product_price_details_tax_value>
+            </photofancy_frontend_layout>
+
+            <photofancy_support_options>
+                <pf_support_times></pf_support_times>
+                <pf_support_hotline></pf_support_hotline>
+                <pf_support_hotline_html></pf_support_hotline_html>
+            </photofancy_support_options>
+
+            <photofancy_shipping_carrier_logos>
+
+            </photofancy_shipping_carrier_logos>
+
+            <photofancy_shipping_carrier_urls>
+                <carrier_logo_url_dpdhl>0</carrier_logo_url_dpdhl>
+                <carrier_logo_url_dpdhlat>0</carrier_logo_url_dpdhlat>
+                <carrier_logo_url_dpups>0</carrier_logo_url_dpups>
+                <carrier_logo_url_dppostch>0</carrier_logo_url_dppostch>
+                <carrier_logo_url_dphermes>0</carrier_logo_url_dphermes>
+
+                <carrier_tracking_url_dpdhl>0</carrier_tracking_url_dpdhl>
+                <carrier_tracking_url_dpdhlat>0</carrier_tracking_url_dpdhlat>
+                <carrier_tracking_url_dpups>0</carrier_tracking_url_dpups>
+                <carrier_tracking_url_dppostch>0</carrier_tracking_url_dppostch>
+                <carrier_tracking_url_dphermes>0</carrier_tracking_url_dphermes>
+            </photofancy_shipping_carrier_urls>
+
+            <photofancy_happyfox_settings_general>
+                <pf_happyfox_activated>0</pf_happyfox_activated>
+                <pf_happyfox_chat_token></pf_happyfox_chat_token>
+            </photofancy_happyfox_settings_general>
+
+            <photofancy_cookiefirst_settings_general>
+                <pf_cookiefirst_activated>0</pf_cookiefirst_activated>
+                <pf_cookiefirst_api_key></pf_cookiefirst_api_key>
+            </photofancy_cookiefirst_settings_general>
+
+        </photofancy>
+    </default>
+</config>
+

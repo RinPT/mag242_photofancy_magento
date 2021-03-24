@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="photofancy_category_button" class="Photofancy\Theme\Block\Widget\CategoryButtonText">
+        <label translate="true">Photofancy - Category Button (Only Text)</label>
+        <description translate="true">Photofancy - Category Button (Only Text)</description>
+        <parameters>
+            <parameter name="icon" xsi:type="select" source_model="WeltPixel\DesignElements\Model\Config\Source\Icons" visible="true" sort_order="10" required="false">
+                <label translate="true">Select Icon</label>
+                <description translate="true">Select an Weltpixel Icon</description>
+            </parameter>
+
+            <parameter name="label" xsi:type="text" visible="true" required="true">
+                <label translate="true">Label</label>
+                <description translate="true">Please type an Label</description>
+            </parameter>
+
+            <parameter name="grid_css" xsi:type="text"  visible="true" sort_order="30" required="true">
+                <label translate="true">Grid Layout CSS</label>
+                <description>Example: col-xs-10 col-xs-offset-1 col-md-offset-0 col-md-6 col-sm-offset-3 col-sm-6</description>
+            </parameter>
+
+            <parameter name="uri" xsi:type="text"  visible="true" sort_order="30" required="true">
+                <label translate="true">Category Uri</label>
+                <description translate="true">Set the Category Uri</description>
+            </parameter>
+
+        </parameters>
+    </widget>
+
+    <widget id="photofancy_youtube_video" class="Photofancy\Theme\Block\Widget\YoutubeVideo">
+        <label translate="true">Photofancy - YouTube Video</label>
+        <description translate="true">Embed Youtube video</description>
+        <parameters>
+            <parameter name="yt_video_id" xsi:type="text" visible="true" required="true">
+                <label translate="true">YouTube Video ID</label>
+                <description translate="true">Please enter the youtube video id</description>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <!--<widget id="photofancy_category_button" class="Photofancy\Theme\Block\Widget\CategoryButtonText">
+        <label translate="true">Photofancy - Category Button (Image &amp; Text)</label>
+        <description translate="true">Photofancy - Category Button (Image &amp; Text)</description>
+        <parameters>
+
+            <parameter name="image" xsi:type="block" visible="true" required="true">
+                <label translate="true">Image</label>
+                <description translate="true">Please select an Image</description>
+                <block class="Atwix\Widget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+
+            <parameter name="label" xsi:type="text" visible="true" required="true">
+                <label translate="true">Label</label>
+                <description translate="true">Please type the text for the Label</description>
+            </parameter>
+
+            <parameter name="img-alt" xsi:type="text" visible="true" required="true">
+                <label translate="true">Alt-Text</label>
+                <description translate="true">The alt-tag</description>
+            </parameter>
+
+            <parameter name="img-title" xsi:type="text" visible="true" required="true">
+                <label translate="true">Title-Text</label>
+                <description translate="true">The title-tag</description>
+            </parameter>
+
+            <parameter name="uri" xsi:type="text" visible="true" required="true">
+                <label translate="true">Category Uri</label>
+                <description translate="true">Set the Category Uri</description>
+            </parameter>
+
+        </parameters>
+    </widget>-->
+
+</widgets>

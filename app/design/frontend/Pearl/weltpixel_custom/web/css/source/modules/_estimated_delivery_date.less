@@ -1,0 +1,47 @@
+.estimatedDeliveryDate{
+
+    &.message  {
+
+        &.success {
+
+            padding-left: 55px;
+            color: @shipping-wrapper-text;
+            background: @shipping-wrapper-background;
+            font-weight: 600;
+            margin: 20px 0 !important;
+
+            > *:first-child:before {
+
+                line-height: 30px;
+                color: @shipping-wrapper-icon;
+                content: '\e696';
+                font-family: 'font-icons';
+                text-align: left;
+                margin-left: 10px;
+                font-size: 3rem;
+
+            }
+
+        }
+
+    }
+
+}
+
+.checkout-cart-index, .checkout-index-index {
+
+    .message  {
+
+        &.success {
+
+            > *:first-child:before {
+
+                line-height: 30px;
+
+            }
+
+        }
+
+    }
+
+}

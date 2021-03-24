@@ -1,0 +1,11 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items\DefaultItems */
+$_order = $block->getOrder();
+
+if ($_order->getPayment()->getMethod() == 'banktransfer') {
+    return false;
+}
+
+echo $_order->getEstimatedDeliveryDate();

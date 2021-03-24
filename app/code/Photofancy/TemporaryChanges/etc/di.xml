@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Catalog\Model\Layer\FilterList">
+        <plugin name="remove_layered_nav_category_filter" type="Photofancy\TemporaryChanges\Plugins\Catalog\Model\Layer\FilterList" sortOrder="1" disabled="false" />
+    </type>
+
+    <type name="Photofancy\TemporaryChanges\Plugins\Catalog\Model\Layer\FilterList">
+        <arguments>
+            <argument name="categoryFilters" xsi:type="array">
+                <item name="catalogsearch_category" xsi:type="string">Magento\CatalogSearch\Model\Layer\Filter\Category</item>
+                <item name="category" xsi:type="string">Magento\Catalog\Model\Layer\Filter\Category</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

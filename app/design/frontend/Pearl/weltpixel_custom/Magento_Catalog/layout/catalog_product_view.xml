@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+
+		<referenceContainer name="product.info.main">
+			<container name="pf.content.top" as="pf.content.top" htmlTag="div" htmlClass="pf-content-top" before="-" />
+			<container name="pf.content.delivery" as="pf.content.delivery" htmlTag="div" htmlClass="pf-content-delivery" after="pf.content.top" />
+		</referenceContainer>
+
+		<move element="product.info.sku" destination="pf.content.top" after="-"/>
+		<move element="product.info.review" destination="pf.content.top" after="-"/>
+
+		<move element="product.info.delivery" destination="pf.content.delivery" before="-"/>
+		<move element="product.info.type" destination="pf.content.delivery" after="product.info.delivery"/>
+
+	</body>
+</page>

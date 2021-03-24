@@ -1,0 +1,69 @@
+<?php /** @var $block \Photofancy\Designer\Block\Designer */ ?>
+
+<div class="g3d-app">
+    <iframe id="g3d-app-iframe" style="min-height: 1000px; width: 100%; height: 100%; border: 0;"></iframe>
+</div>
+
+<script>
+    var iframe = document.getElementById('g3d-app-iframe');
+    var urls = <?= Zend_Json::encode($block->getAppUrls()) ?>;
+    var url = null;
+    var a2c = "<?= $this->getUrl('personaliseit/api/a2c', [ 'id' => $this->getProductId() ]) ?>";
+
+    var isMobile = window.matchMedia && window.matchMedia("(max-width: 800px)").matches;
+
+    if(isMobile && urls['g3d_app_url_mobile']) {
+        url = urls['g3d_app_url_mobile'];
+    } else {
+        url = urls['g3d_app_url_default'];
+    }
+
+    iframe.src = url[0];
+
+    window.addEventListener("message", function(e) {
+        if(e.origin == url[1] && e.data.id == '<?= $block->getMei() ?>') {
+            var name = e.data.name;
+            var body = e.data.body;
+
+            var iframe = document.getElementById('g3d-app-iframe');
+
+            switch(name) {
+                case 'IFRAME_RESIZE':
+                    iframe.style.height = body.height + "px";
+                    break;
+
+                case 'ADD_TO_CART_CALLBACK':
+                    var xhr = new XMLHttpRequest();
+                    xhr.widthCredentials = true;
+
+                    xhr.onreadystatechange = function() {
+                        if(xhr.readyState == 4) {
+                            if(xhr.status == 200) {
+                                var data = JSON.parse(xhr.responseText);
+
+                                window.top.location = data.redirect;
+                            } else {
+                                try {
+                                    var data = JSON.parse(xhr.responseText);
+
+                                    console.error(data);
+                                    alert(data.error.message);
+                                } catch(e) {
+                                    alert("An unknown error ocurred");
+                                }
+                            }
+                        }
+                    };
+
+                    xhr.open("POST", a2c);
+
+                    var fd = new FormData();
+                    fd.append('data', JSON.stringify(body));
+
+                    xhr.send(fd);
+
+                    break;
+            }
+        }
+    });
+</script>

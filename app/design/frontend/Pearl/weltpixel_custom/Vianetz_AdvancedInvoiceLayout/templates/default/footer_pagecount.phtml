@@ -1,0 +1,14 @@
+<?php // This is the way that page numbers are set in DomPDF, all drawings will go to the current page. ?>
+<?php // @see https://code.google.com/p/dompdf/wiki/FAQ ?>
+<div id="footerPageCount">
+<script type="text/php">
+    if (isset($pdf) === true) {
+        $font = $fontMetrics->get_font('helvetica');
+        $fontSize = 7;
+        $pageText = __('Page {PAGE_NUM} of {PAGE_COUNT}');
+        $y = $pdf->get_height() - 24;
+        $x = $pdf->get_width() - 85;
+        $pdf->page_text($x, $y, $pageText, $font, $fontSize, array(0,0,0));
+    }
+</script>
+</div>

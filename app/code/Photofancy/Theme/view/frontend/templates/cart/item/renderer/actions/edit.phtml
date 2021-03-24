@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Photofancy\Theme\Block\Cart\Item\Renderer\Actions\Edit */
+
+$_item = $block->getItem();
+$productId = $_item->getProduct()->getId();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+
+$buyRequest = json_decode($_item->getOptionByCode('info_buyRequest')->getValue(), true);
+
+$keys = ['g3d_app_url_default', 'g3d_app_url_mobile'];
+$_appUrls = null;
+
+foreach ($keys as $key) {
+    $attribute = $product->getCustomAttribute($key);
+
+    if ($attribute && $attribute->getValue()) {
+        $_appUrls[$key] = [ $attribute->getValue(), $attribute->getValue() ];
+    }
+}
+
+$url = $block->getBaseUrl() . "designer?sku=" . $product->getSku();
+
+if (isset($buyRequest['g3d'][0]['type']) && isset($buyRequest['g3d'][0]['ref'])) {
+    $url .= "&" . $buyRequest['g3d'][0]['type'] . "=" . $buyRequest['g3d'][0]['ref'];
+}
+
+?>
+<?php if (!!$_appUrls): ?>
+
+    <a href="#" title="<?= $block->escapeHtmlAttr(__('Edit item parameters')) ?>" class="action action-edit" data-post='<?= /* @noEscape */ $block->getDeletePostJson($url) ?>'>
+        <span>
+            <?= $block->escapeHtml(__('Edit')) ?>
+        </span>
+    </a>
+
+<?php endif ?>

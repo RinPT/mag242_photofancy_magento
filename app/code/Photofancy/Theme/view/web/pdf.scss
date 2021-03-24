@@ -1,0 +1,273 @@
+/**
+ * AdvancedInvoiceLayout CSS Styles
+ *
+ * @section LICENSE
+ * This file is created by vianetz <info@vianetz.com>.
+ * The Magento module is distributed under a commercial license.
+ * Any redistribution, copy or direct modification is explicitly not allowed.
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@vianetz.com so we can send you a copy immediately.
+ *
+ * @package     Vianetz\AdvancedInvoiceLayout
+ * @author      Christoph Massmann, <cm@vianetz.com>
+ * @link        https://www.vianetz.com
+ * @copyright   Copyright (c) since 2006 vianetz - Dipl.-Ing. C. Massmann (https://www.vianetz.com)
+ * @license     https://www.vianetz.com/license Commercial Software License
+ * @version     %%MODULE_VERSION%%
+ */
+
+/* @see https://github.com/dompdf/dompdf/wiki/CSSCompatibility */
+
+$secondColor: #EFEFEF;
+$tableColumnColor: #FAFAFA;
+
+table {
+    width: 100%;
+
+    td {
+        vertical-align: top;
+    }
+}
+
+ul {
+    list-style-type: square;
+}
+
+.pageBreak {
+    page-break-after: always;
+}
+
+.smallerFont {
+    font-size: x-small;
+}
+
+#header {
+    #storeLogo {
+        height: 150px;
+        width: 100%;
+        text-align: right;
+
+        img {
+            width: 300px;
+        }
+    }
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100px;
+    text-align: center;
+    border-top: 2px solid $secondColor;
+    font-size: xx-small;
+
+    .footerMiddle {
+        text-align: center;
+    }
+
+    .footerRight {
+        text-align: right;
+    }
+
+    & > table {
+        width: 100%;
+
+        td {
+            vertical-align: top;
+            width: 33%;
+        }
+    }
+}
+
+/* Address Styles */
+#addressWindow {
+    margin: 0 0 20px 0;
+
+    #senderAddress {
+        font-size: 10px;
+        border-bottom: 2px solid #efefef;
+        margin-bottom: 10px;
+        width: 300px;
+    }
+
+    #billingAddress,
+    #shippingAddress {
+        width: 300px;
+    }
+}
+
+#invoiceTitle {
+    margin: 50px 0 20px 0;
+    font-size: 19px;
+}
+
+#paymentAndShippingData {
+    margin-top: 20px;
+    width: 100%;
+
+    #paymentMethodData,
+    #shippingMethodData {
+        width: 50%;
+        vertical-align: top;
+    }
+}
+
+.methodText {
+    & > p {
+        margin-top: 0;
+    }
+
+    table th {
+        /* This is required e.g. for the default PayPal detail table */
+        text-align: left;
+    }
+}
+
+#addressWindow #billingAddress,
+.methodTitle,
+#itemTable .columnPrice,
+#itemTable .columnRowTotal,
+.price {
+    font-weight: bold;
+}
+
+#itemTable {
+    width: 100%;
+    padding-bottom: 10px;
+
+    thead {
+        background-color: $secondColor;
+
+        th {
+            padding: 5px;
+        }
+    }
+
+    td {
+        padding: 5px;
+        text-align: center;
+        vertical-align: top;
+
+        /** Make each second column with different color */
+        &:nth-child(even) {
+            background: $tableColumnColor;
+        }
+    }
+
+    .rowTotal td {
+        text-align: right;
+    }
+
+    .columnSku,
+    .columnName {
+        text-align: left;
+    }
+
+    .columnSku {
+        width: 10%;
+    }
+
+    .columnName {
+        width: 50%;
+    }
+
+    .columnQty,
+    .columnPrice {
+        width: 8%;
+    }
+
+    .columnRowTotal {
+        width: 16%;
+    }
+
+    .columnPrice,
+    .columnRowTotal {
+        text-align: right;
+    }
+
+    .downloadableLinks {
+        padding-bottom: 10px;
+    }
+
+    .image {
+        width: 100px;
+    }
+}
+
+#totalTable {
+    padding-top: 10px;
+    text-align: right;
+    width: 100%;
+    border-top: 2px solid $secondColor;
+    page-break-inside: avoid;
+
+    .rowTotal {
+        font-weight: bold;
+
+        td.columnTotalValue {
+            width: 150px;
+        }
+
+        &.rowGrandTotal {
+            font-size: larger;
+        }
+    }
+}
+
+#taxTable {
+    width: auto;
+    border-collapse: collapse;
+    page-break-before: always;
+    page-break-inside: avoid;
+
+    td {
+        border: 1px solid $secondColor;
+        padding: 5px;
+    }
+
+    tr {
+        &:first-child td {
+            border-top: 0;
+        }
+
+        &:last-child td {
+            border-bottom: 0;
+        }
+
+        td:first-child {
+            border-left: 0;
+        }
+
+        td:last-child {
+            border-right: 0;
+        }
+    }
+}
+
+.crosssellItem {
+    background-color: $secondColor;
+    width: 400px;
+    margin: 20px 0;
+    page-break-inside: avoid;
+
+    .image {
+        width: 100px;
+    }
+
+    td {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    h4 {
+        margin-top: 0;
+    }
+}
+
+#couponBox {
+    background-color: $tableColumnColor;
+    padding: 8px;
+}

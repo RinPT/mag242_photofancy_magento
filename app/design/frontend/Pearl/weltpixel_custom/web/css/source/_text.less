@@ -1,0 +1,101 @@
+h1, h2, h3, h4, h5, h6,
+#layered-filter-block .filter-content .filter-options .filter-options-item .filter-options-title,
+#layered-filter-block.filter .block-subtitle,
+.toolbar.toolbar-products #toolbar-amount,
+.toolbar.toolbar-products .toolbar-sorter label,
+.toolbar.toolbar-products select
+{
+    text-transform: none !important;
+}
+
+.navigation {
+    > ul {
+        > li {
+            > ul {
+                li {
+                    a {
+                        span {
+                            text-transform: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .megamenu {
+        a {
+            text-transform: none !important;
+        }
+    }
+
+}
+
+.theme-pearl {
+    & .breadcrumbs {
+        & .items {
+            a, strong {
+                text-transform: initial !important;
+            }
+            a {
+                &:hover {
+                    text-decoration: underline !important;
+                }
+            }
+        }
+    }
+}
+
+.page-wrapper {
+    & .page-footer {
+        & .footer.content {
+            & .pre-footer {
+
+                flex-direction: column;
+
+                & .shipping-notes-content {
+                    background-color: @color-background-default;
+
+                    & .shipping-notes-title {
+                        font-size: 1.1rem;
+                        color: @color-text-hellgrau;
+                        text-align: center;
+
+                        a {
+                            color: @color-link-dark-grey;
+                            text-decoration: underline;
+
+                            &:hover {
+                                color: @color-text-hellgrau;
+                            }
+                        }
+                    }
+                }
+
+                & .pre-footer-content {
+
+                    @media (min-width: 768px) {
+                        padding: 20px 0;
+                    }
+
+                    & .pre-footer-title {
+
+                        font-size: 20px !important;
+
+                        @media (min-width: 768px) {
+                            font-size: 16px !important;
+                        }
+
+                    }
+
+                    & .pre-footer-subtitle {
+
+                        font-size: 20px !important;
+
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+if (! $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_happyfox_settings/photofancy_happyfox_settings_general/pf_happyfox_activated')) {
+    return;
+}
+?>
+
+<script>
+    window.HFCHAT_CONFIG = {
+        EMBED_TOKEN: "<?php echo $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_happyfox_settings/photofancy_happyfox_settings_general/pf_happyfox_chat_token'); ?>",
+        ASSETS_URL: 'https://widget.happyfoxchat.com/v2/visitor'
+    };
+    (function () {
+        var scriptTag = document.createElement('script');
+        scriptTag.type = 'text/javascript';
+        scriptTag.async = true;
+        scriptTag.src = window.HFCHAT_CONFIG.ASSETS_URL + '/js/widget-loader.js';
+
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(scriptTag, s)
+    })()
+</script>

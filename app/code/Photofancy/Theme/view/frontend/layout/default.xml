@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="before.body.end">
+            <block name="happyfox.chat" class="Photofancy\Theme\Block\HappyfoxChat" before="-" template="Photofancy_Theme::happyfox_chat.phtml" />
+        </referenceContainer>
+
+        <referenceContainer name="after.body.start">
+            <block name="cookiefirst" class="Photofancy\Theme\Block\CookieFirst" before="-" template="Photofancy_Theme::cookie_first.phtml" />
+        </referenceContainer>
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/pf_logo_light.svg</argument>
+                <argument name="logo_img_width" xsi:type="number">420</argument>
+                <argument name="logo_img_height" xsi:type="number">72</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <container name="layout.preheader" htmlTag="div" htmlClass="preheader--wrapper" before="-">
+
+                <block class="Photofancy\Theme\Block\PreheaderWrapper"
+                       name="layout.preheader.wrapper" template="Photofancy_Theme::preheader_wrapper.phtml"
+                       before="-" />
+
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="footer_links" remove="false"></referenceBlock>
+
+        <block class="FireGento\MageSetup\Block\Price\Details" name="magesetup.product.price.details" as="price_details" template="Photofancy_Theme::product/price/details.phtml"/>
+
+    </body>
+</page>

@@ -1,0 +1,39 @@
+<div class="row hidden-xs">
+
+    <ul class="preheader__links">
+        <li>
+            <a href="<?php /* @escapeNotVerified */ echo $block->getUrl('informationen/versand') ?>">
+                <i class="icon-line-clock"></i>
+                <?php echo __('Fast production & shipping') ?>
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php /* @escapeNotVerified */ echo $block->getUrl('informationen/sicherheit') ?>">
+                <i class="icon-shield"></i>
+                <?php echo __('Secure & certified online shop') ?>
+            </a>
+        </li>
+
+        <li class="hidden-sm">
+            <a href="<?php /* @escapeNotVerified */ echo $block->getUrl('informationen/kundenzufriedenheit') ?>">
+                <i class="icon-line-repeat"></i>
+                <?php echo __('Satisfaction Guarantee') ?>
+            </a>
+        </li>
+
+        <li>
+            <a href="<?php /* @escapeNotVerified */ echo $block->getUrl('faq') ?>">
+                <i class="icon-line2-question"></i>
+                <?php echo __('Frequently asked questions / FAQ') ?>
+            </a>
+        </li>
+
+        <li class="hidden-md hidden-sm">
+            <i class="icon-phone3"></i>
+            <?php echo __('Consulting hotline') ?> <?php echo $block->getHotline(); ?>
+        </li>
+
+    </ul>
+
+</div>

@@ -1,0 +1,47 @@
+<?php
+
+if (! $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_settings/photofancy_frontend_layout/pf_product_price_details')) {
+    return;
+}
+
+/**
+ * @var $this \FireGento\MageSetup\Block\Price\Details
+ */
+?>
+<?php
+$shippingCostUrl = $this->getShippingCostUrl();
+$taxRate = $this->getFormattedTaxRate();
+$taxRateLabel = "%1 VAT";
+if (! $this->helper('Photofancy\Theme\Helper\Config')->get('photofancy_settings/photofancy_frontend_layout/pf_product_price_details_tax_value')) {
+    $taxRateLabel = "VAT";
+}
+?>
+<div class="price-details">
+    <?php if ($shippingCostUrl && $this->canShowShippingLink()): ?>
+        <?php if ($this->getPriceDisplayType() == \Magento\Tax\Model\Config::DISPLAY_TYPE_EXCLUDING_TAX): ?>
+            <?php if ($this->isIncludingShippingCosts()): ?>
+                <span class="tax-details"><?php echo __('Excl. ' . $taxRateLabel, $taxRate) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo __('incl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span></span>
+            <?php else: ?>
+                <span class="tax-details"><?php echo __('Excl. ' . $taxRateLabel, $taxRate) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo __('excl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span></span>
+            <?php endif ?>
+        <?php elseif ($this->getPriceDisplayType() == \Magento\Tax\Model\Config::DISPLAY_TYPE_INCLUDING_TAX): ?>
+            <?php if ($this->isIncludingShippingCosts()): ?>
+                <span class="tax-details"><?php echo __('Incl. ' . $taxRateLabel, $taxRate) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo __('incl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span></span>
+            <?php else: ?>
+                <span class="tax-details"><?php echo __('Incl. ' . $taxRateLabel, $taxRate) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo __('excl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span></span>
+            <?php endif ?>
+        <?php elseif ($this->getPriceDisplayType() == \Magento\Tax\Model\Config::DISPLAY_TYPE_BOTH): ?>
+            <?php if ($this->isIncludingShippingCosts()): ?>
+                <span class="tax-details"><?php echo __('incl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span>
+            <?php else: ?>
+                <span class="tax-details"><?php echo __('excl. <a href="%1">Shipping Cost</a>', $shippingCostUrl) ?></span>
+            <?php endif ?>
+        <?php endif ?>
+    <?php else: ?>
+        <?php if ($this->getPriceDisplayType() == \Magento\Tax\Model\Config::DISPLAY_TYPE_EXCLUDING_TAX): ?>
+            <span class="tax-details"><?php echo __('Excl. ' . $taxRateLabel, $taxRate) ?></span>
+        <?php elseif ($this->getPriceDisplayType() == \Magento\Tax\Model\Config::DISPLAY_TYPE_INCLUDING_TAX): ?>
+            <span class="tax-details"><?php echo __('Incl. ' . $taxRateLabel, $taxRate) ?></span>
+        <?php endif ?>
+    <?php endif ?>
+</div>

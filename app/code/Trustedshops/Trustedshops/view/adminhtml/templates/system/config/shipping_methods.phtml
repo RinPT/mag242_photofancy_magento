@@ -1,0 +1,23 @@
+<?php
+use Trustedshops\Trustedshops\Block\System\ShippingMethodDelayTime;
+
+/** @var ShippingMethodDelayTime $this */
+?>
+
+<h2><?= __('Configure the shipping methods')?></h2>
+<table>
+    <tr>
+        <th>Shipping Method</th>
+        <th></th>
+    </tr>
+    <?php $index = 0; ?>
+    <?php foreach ($this->getShippingMethods() as $shippingMethodCode => $shippingMethodLabel) : ?>
+        <?php $index++; ?>
+        <tr>
+            <td><?= $shippingMethodLabel ?></td>
+            <td>
+                <input type="number" name="shipping_method_delay[<?= $shippingMethodCode ?>]" id="shipping_method_delay[<?= $shippingMethodCode ?>]">
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

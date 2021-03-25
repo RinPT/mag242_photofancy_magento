@@ -1,0 +1,81 @@
+<?php
+$areaFrontName = $this->helper('Magento\Backend\Helper\Data')->getAreaFrontName();
+?>
+<script>
+    /** Object */
+    let Trustedshops = {
+        login: function () {
+            let email = document.querySelector("input[name='ts_login_email']").value;
+            let password = document.querySelector("input[name='ts_login_password']").value;
+
+            jQuery.ajax({
+                url: '<?= $this->getUrl('trustedshops_trustedshops/shops/login') ?>',
+                showLoader: true,
+                data: {
+                    email: email,
+                    password: password
+                },
+                type: "POST",
+                success: function (result) {
+                    if (result.success) {
+                        window.location.reload();
+                    } else {
+                        document.querySelector('.ts-error').innerHTML = result.content;
+                    }
+                }
+            });
+        },
+
+        logout: function () {
+            jQuery.ajax({
+                url: '<?= $this->getUrl('trustedshops_trustedshops/shops/logout') ?>',
+                showLoader: true,
+                data: {logout: true},
+                type: "POST",
+                success: function () {
+                    window.location.reload();
+                }
+            });
+        },
+
+        linkStore: function (scopeId, tsId, selectId) {
+            if (scopeId === '-') {
+                return;
+            }
+            jQuery.ajax({
+                url: '<?= $this->getUrl('trustedshops_trustedshops/shops/link')?>',
+                showLoader: true,
+                data: {
+                    scopeId: scopeId,
+                    tsId: tsId
+                },
+                type: "POST",
+                success: function () {
+                    jQuery('.ts-store-select').each(function (index) {
+                        if (this.value === scopeId && !jQuery(this).hasClass('select-' + selectId)) {
+                            this.value = '-';
+                        }
+                    });
+                    Trustedshops.showConfig();
+                }
+            });
+        },
+
+        hideConfig: function () {
+            jQuery('.ts_config').hide();
+        },
+        showConfig: function () {
+            jQuery('.ts_config').show();
+        }
+    };
+
+    <?php if (!$this->isActive()):?>
+    requirejs(['jquery'], function ($) {
+        $(document).ready(function () {
+                Trustedshops.hideConfig();
+            }
+        );
+    });
+
+    <?php endif;?>
+</script>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /* @var $block \Trustedshops\Trustedshops\Block\System\ExportButton */ ?>
+
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function (jQuery) {
+
+        var exportSpan = jQuery('#export');
+
+        jQuery('#export_button').click(function () {
+            window.open('<?= $block->getAjaxUrl() ?>');
+            exportSpan.find('.started').show();
+            jQuery('#export_message_span').text('Export initiated...');
+        });
+
+    });
+</script>
+
+<?= $block->getButtonHtml() ?>
+
+<span class="export-indicator" id="export">
+    <img class="started" hidden="hidden" alt="Export finished" style="margin:-3px 5px"
+         src="<?= $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+    <span id="export_message_span"></span>
+</span>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="trustedshops_trustedshops_mail_optin_confirmation" label="Trustedshops | Optin" file="trustedshops_trustedshops_optin_confirmation.html" type="html" module="Trustedshops_Trustedshops" area="frontend"/>
+    <template id="trustedshops_trustedshops_error_mail" label="Trustedshops | Error" file="trustedshops_trustedshops_error_mail.html" type="html" module="Trustedshops_Trustedshops" area="adminhtml" />
+</config>

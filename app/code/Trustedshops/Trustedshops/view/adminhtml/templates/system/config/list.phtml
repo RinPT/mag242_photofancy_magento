@@ -1,0 +1,28 @@
+<button type="button" onclick="Trustedshops.logout(); return false;"><?= __('Logout') ?></button>
+<h2><?= __('Configure your Trusted Shops IDs')?></h2>
+<table>
+    <tr>
+        <th>Trusted Shops ID</th>
+        <th>Trusted Shops Sprache</th>
+        <th>Trusted Shops URL</th>
+        <th>Magento Shop</th>
+    </tr>
+    <?php $index = 0; ?>
+    <?php foreach ($this->getList() as $_shop) : ?>
+        <?php $index++; ?>
+        <tr>
+            <td><?= $_shop['tsId'] ?></td>
+            <td><?= $_shop['languageISO2'] ?></td>
+            <td><?= $_shop['url'] ?></td>
+            <td>
+                <select class="ts-store-select select-<?= $index; ?>"
+                        onchange="Trustedshops.linkStore(this.value, '<?= $_shop['tsId'] ?>', <?= $index ?>)">
+                    <option value='-'><?= __('Please Select') ?></option>
+                    <?php foreach ($this->getAvailableStores() as $_store) : ?>
+                        <option value="<?= $_store['value'] ?>" <?= ($_shop['tsId'] === $_store['tsId'] ? 'selected' : '') ?>><?= $_store['label'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

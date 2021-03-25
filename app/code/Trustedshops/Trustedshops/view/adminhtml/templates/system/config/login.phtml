@@ -1,0 +1,40 @@
+<div id="ts-login">
+    <div class="ts-left">
+        <img class="logo" src="<?= $this->getViewFileUrl('Trustedshops_Trustedshops::images/logo_trustedshops.png') ?>" alt="Trusted Shops logo">
+
+        <h2 class="text-center"><?= __('Sign up') ?></h2>
+
+        <a class="btn btn-block btn-cta mb4" href="https://business.trustedshops.com/en/pricing" target="_blank">
+            <?= __('Create your account') ?><br />
+        </a>
+
+        <hr class="or" data-text="<?= __('Or') ?>">
+
+        <p class="small text-center mt3 mb3">
+            <?= __('Do you already have an account?') ?><br />
+            <?= __('Please insert your &quot;My Trusted Shops&quot; credentials:') ?>
+        </p>
+
+        <div class="form-group mb3">
+            <label class="label-control mb1"><?= __('Email address') ?></label>
+            <input class="form-control" type="email" name="ts_login_email" value="" />
+        </div>
+
+        <div class="form-group mb3">
+            <label class="label-control mb1"><?= __('Password') ?></label>
+            <input class="form-control" type="password" name="ts_login_password" value="" />
+            <div class="help-block text-center">
+                <a href="https://login.etrusted.com/auth/realms/business/login-actions/reset-credentials" target="_blank"><?= __('Forgot your password?') ?></a>
+            </div>
+        </div>
+
+        <input class="btn btn-primary btn-block" type="button" value="<?= __('Sign in') ?>" onclick="Trustedshops.login();"/>
+
+        <div class="ts-error">
+
+        </div>
+    </div>
+    <div class="ts-right">
+        <img src="<?= $this->getViewFileUrl('Trustedshops_Trustedshops::images/login/info_DE.png') ?>">
+    </div>
+</div>

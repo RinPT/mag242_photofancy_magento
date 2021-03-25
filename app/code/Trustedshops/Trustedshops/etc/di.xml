@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Sales\Model\Order" type="Trustedshops\Trustedshops\Model\Rewrite\Sales\Order" />
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="checkDisplayCheckbox" type="Trustedshops\Trustedshops\Model\Plugin\Checkout\LayoutProcessor" sortOrder="100"/>
+    </type>
+    <type name="Magento\Checkout\Api\PaymentInformationManagementInterface">
+        <plugin name="trustedshops-optin" type="Trustedshops\Trustedshops\Model\Checkout\Plugin\OptInCheckbox"/>
+    </type>
+    <type name="Magento\Checkout\Api\GuestPaymentInformationManagementInterface">
+        <plugin name="trustedshops-guest-optin" type="Trustedshops\Trustedshops\Model\Checkout\Plugin\OptInGuestCheckbox"/>
+    </type>
+</config>

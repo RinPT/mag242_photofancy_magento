@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Trustedshops
+ * @package   Trustedshops\Trustedshops
+ * @author    Trusted Shops GmbH
+ * @copyright 2019 Trusted Shops GmbH
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://www.trustedshops.de/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <trustedshops_trustedshops>
+            <general>
+                <mode>standard</mode>
+            </general>
+            <trustbadge>
+                <variant>reviews</variant>
+                <offset>0</offset>
+                <collect_orders>1</collect_orders>
+                <code><![CDATA[
+<script type="text/javascript">
+(function () {
+var _tsid = '%tsid%';
+_tsConfig = {
+'yOffset': '0',
+'variant': 'reviews',
+'customElementId': '',
+'trustcardDirection': '',
+'customBadgeWidth': '',
+'customBadgeHeight': '',
+'disableResponsive': 'false',
+'disableTrustbadge': 'false',
+'trustCardTrigger': 'mouseenter',
+'customCheckoutElementId': ''
+};
+var _ts = document.createElement('script');
+_ts.type = 'text/javascript';
+_ts.charset = 'utf-8';
+_ts.async = true;
+_ts.src = '//widgets.trustedshops.com/js/' + _tsid + '.js';
+var __ts = document.getElementsByTagName('script')[0];
+__ts.parentNode.insertBefore(_ts, __ts);
+})();
+</script>
+                ]]></code>
+            </trustbadge>
+            <shop>
+                <code><![CDATA[
+<script type="text/javascript">
+    (function () {
+        _tsRatingConfig = {
+            'tsid': '%tsid%',
+            'variant': 'testimonial',
+            'theme': 'light',
+            'reviews': '5',
+            'betterThan': '3.5',
+            'richSnippets': 'on',
+            'backgroundColor': '#ffdc0f',
+            'linkColor': '#000000',
+            'quotationMarkColor': '#FFFFFF',
+            'fontFamily': 'Arial',
+            'reviewMinLength': '10'
+        };
+        var scripts = document.getElementsByTagName('SCRIPT'),
+            me = scripts[scripts.length - 1];
+        var _ts = document.createElement('SCRIPT');
+        _ts.type = 'text/javascript';
+        _ts.async = true;
+        _ts.src = '//widgets.trustedshops.com/reviews/tsSticker/tsSticker.js';
+        me.parentNode.insertBefore(_ts, me);
+        _tsRatingConfig.script = _ts;
+    })();
+</script>
+            ]]></code>
+            </shop>
+            <rich_snippets>
+                <code><![CDATA[
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "Organization",
+"name": "%shopname%",
+"aggregateRating" : {
+"@type": "AggregateRating",
+"ratingValue" : "%result%",
+"bestRating" : "%max%",
+"ratingCount" : "%count%"
+}}
+</script>
+            ]]></code>
+            </rich_snippets>
+            <product>
+                <collect_reviews>0</collect_reviews>
+                <review_border_color>#FFDC0F</review_border_color>
+                <review_star_color>#C0C0C0</review_star_color>
+                <rating_star_color>#FFDC0F</rating_star_color>
+                <rating_star_size>18px</rating_star_size>
+                <rating_font_size>12px</rating_font_size>
+                <product_review_tab_name>Trusted Shops Reviews</product_review_tab_name>
+                <review_code><![CDATA[
+<script type="text/javascript">
+_tsProductReviewsConfig = {
+tsid: '%tsid%',
+sku: ['%sku%'],
+variant: 'productreviews',
+borderColor: '#0DBEDC',
+locale: 'de_DE',
+backgroundColor: '#ffffff',
+starColor: '#FFDC0F',
+richSnippets: 'off',
+starSize: '15px',
+ratingSummary: 'false',
+maxHeight: '1200px',
+'element': '#ts_product_sticker',
+hideEmptySticker: 'false',
+introtext: '' /* optional */
+};
+var scripts = document.getElementsByTagName('SCRIPT'),
+me = scripts[scripts.length - 1];
+var _ts = document.createElement('SCRIPT');
+_ts.type = 'text/javascript';
+_ts.async = true;
+_ts.charset = 'utf-8';
+_ts.src
+='//widgets.trustedshops.com/reviews/tsSticker/tsProductSticker.js';
+me.parentNode.insertBefore(_ts, me);
+_tsProductReviewsConfig.script = _ts;
+</script>
+                ]]></review_code>
+                <rating_code><![CDATA[
+<script type="text/javascript"
+src="//widgets.trustedshops.com/reviews/tsSticker/tsProductStickerSummary.
+js"></script>
+<script>
+var summaryBadge = new productStickerSummary();
+summaryBadge.showSummary(
+{
+'tsId': '%tsid%',
+'sku': ['%sku%'],
+'element': '#ts_product_widget',
+'starColor' : '#FFDC0F',
+'starSize' : '14px',
+'fontSize' : '12px',
+'showRating' : true,
+'scrollToReviews' : false
+}
+);
+</script>
+            ]]></rating_code>
+            </product>
+        </trustedshops_trustedshops>
+        <trustedshops_trustedshops_reviews>
+            <trigger_api>
+                <trigger_api_active>0</trigger_api_active>
+                <trigger_status>complete</trigger_status>
+            </trigger_api>
+            <order_export>
+                <status_filter>all</status_filter>
+                <store_filter>all</store_filter>
+                <created_at_filter>1_month</created_at_filter>
+            </order_export>
+        </trustedshops_trustedshops_reviews>
+    </default>
+</config>

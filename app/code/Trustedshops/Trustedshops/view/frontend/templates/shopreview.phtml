@@ -1,0 +1,35 @@
+<?php /** @var Trustedshops\Trustedshops\Block\Shopreview $block */ ?>
+<?php if ($block->isActive() && $block->getDisplayShopreview()) : ?>
+    <?php if ($block->isExpert()) : ?>
+        <?= /* @noEscape */
+        $block->getCode() ?>
+    <?php else : ?>
+        <div style="display: inline-block">
+            <script type="text/javascript">
+                (function () {
+                    _tsRatingConfig = {
+                        'tsid': '<?= $block->escapeHtml($block->getTsId()) ?>',
+                        'variant': 'testimonial',
+                        'theme': 'light',
+                        'reviews': '<?= $block->getReviewAmount()?>',
+                        'betterThan': '<?= $block->getMinimalRating()?>',
+                        'richSnippets': 'on',
+                        'backgroundColor': '<?= $block->getBackgroundColor()?>',
+                        'linkColor': '#000000',
+                        'quotationMarkColor': '#FFFFFF',
+                        'fontFamily': '<?= $block->getFontFamily()?>',
+                        'reviewMinLength': '10'
+                    };
+                    var scripts = document.getElementsByTagName('SCRIPT'),
+                        me = scripts[scripts.length - 1];
+                    var _ts = document.createElement('SCRIPT');
+                    _ts.type = 'text/javascript';
+                    _ts.async = true;
+                    _ts.src = '//widgets.trustedshops.com/reviews/tsSticker/tsSticker.js';
+                    me.parentNode.insertBefore(_ts, me);
+                    _tsRatingConfig.script = _ts;
+                })();
+            </script>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

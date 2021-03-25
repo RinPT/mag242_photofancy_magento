@@ -1,0 +1,20 @@
+<!--@subject Error in TrustedShops module@-->
+<!--@vars {
+"var error_message":"Exception Message",
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Error in TrustedShops module</p>
+            <p>
+                {{trans "An exception occured in the TrustedShops module."}}<br />
+                {{trans 'Exception message: %message' message=$error_message |raw}}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

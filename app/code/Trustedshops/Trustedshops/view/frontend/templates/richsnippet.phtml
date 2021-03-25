@@ -1,0 +1,28 @@
+<?php /** @var Trustedshops\Trustedshops\Block\Richsnippet $block */ ?>
+<script>
+    var test;
+</script>
+<?php if ($block->isActive()) : ?>
+    <?php if ($block->isExpert()) : ?>
+        <?= /* @noEscape */
+        $block->getCode() ?>
+    <?php else : ?>
+        <?php $richSnippetsConfig = $block->getRichSnippetsData();
+        if ($richSnippetsConfig['reviewsFound']):?>
+            <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "<?= $richSnippetsConfig['shopName'] ?>",
+                "aggregateRating" : {
+                    "@type": "AggregateRating",
+                    "ratingValue" : "<?= $richSnippetsConfig['result'] ?>",
+                    "bestRating" : "<?= $richSnippetsConfig['max'] ?>",
+                    "ratingCount" : "<?= $richSnippetsConfig['count'] ?>"
+                }
+            }
+
+            </script>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>

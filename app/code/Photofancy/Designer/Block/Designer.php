@@ -1,6 +1,7 @@
 <?php
 namespace Photofancy\Designer\Block;
 
+use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\ProductFactory;
 
@@ -8,33 +9,33 @@ use MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\ProductFactory;
  * Class Wrapper
  * @package Photofancy\Designer\Block
  */
-class Designer extends \Magento\Framework\View\Element\Template
+class Designer extends Template
 {
-    private $_mei = "";
-    private $_meo = "";
-    private $_productId = null;
-    private $_productSku = null;
-    private $_pj_param = null;
-    private $_appUrls = [];
+    private string $_mei;
+    private string $_meo;
+    private $_productId;
+    private $_productSku;
+    private $_pj_param;
+    private array $_appUrls = [];
 
-    protected $_product = null;
+    protected $_product;
 
-    public function hasAppUrls()
+    public function hasAppUrls(): bool
     {
-        return !!$this->_appUrls;
+        return (bool)$this->_appUrls;
     }
 
-    public function getAppUrls()
+    public function getAppUrls(): array
     {
         return $this->_appUrls;
     }
 
-    public function getMei()
+    public function getMei(): string
     {
         return $this->_mei;
     }
 
-    public function getMeo()
+    public function getMeo(): string
     {
         return $this->_meo;
     }

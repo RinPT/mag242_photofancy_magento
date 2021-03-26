@@ -1,0 +1,74 @@
+$colors: (
+  // Main-Colors
+  main-accent : #F5F5F5,
+  main-lightest : #ECECEC,
+  main-lighter : #E5E5E5,
+  main-light : #d5d5d5,
+  main : #D5D5D5,
+  main-dim : #C0C0C0,
+  main-dark : #808080,
+  main-darker : #1D1D1D,
+  main-darkest : #333333,
+  main-contrast : #fff,
+
+  // Brand-Colors
+  brand-lightest : #C6D7EB,
+  brand-accent : #DDE4EE,
+  brand-lighter : #96B7E1,
+  brand-light : #7FBBF9,
+  brand : #5DA5ED,
+  brand-dim : #2B425D,
+  brand-dark : #314965,
+  brand-darker : #283D56,
+  brand-darkest : #283545,
+  brand-contrast : #304967,
+
+  // Text-Colors
+  text-primary : #333,
+  text-primary-contrast: #fff,
+
+  //Warning-Colors
+  warning-darkest : #5C4813,
+  warning-darker : #8C6D1F,
+  warning-dark :#CAA53D,
+  warning : #F4CA64,
+  warning-light : #FAE29F,
+  warning-lighter : #FDF3D7,
+  warning-lightest : #FFFCF4,
+//warning-accent :,
+  warning-contrast : #513C06,
+
+  //Danger-Colors
+  danger : #d9534f,
+  danger-dark :#a94442,
+  danger-darker :#7D1A1D,
+  danger-darkest :#551719,
+  danger-light :#E05A5C,
+  danger-lighter :#f2dede,
+  danger-lightest :#FAE3E4,
+//danger-accent :,
+  danger-contrast :#3F0608,
+
+  //Success-Colors
+  success : #4bcf23,
+  //success-dark :,
+  //success-darker :,
+  //success-darkest :,
+  //success-light :,
+  //success-lighter :,
+  //success-lightest :,
+  //success-accent :,
+  //success-contrast :,
+);
+
+$buttonColors: (
+  btn-primary-bg : map_get($colors, 'brand'),
+  btn-primary-text : map_get($colors, 'text-primary-contrast'),
+  btn-primary-hover : map_get($colors, 'brand-light'),
+  btn-primary-active : map_get($colors, 'brand-light'),
+
+  btn-secondary-bg : map_get($colors, 'main-darker'),
+  btn-secondary-text : map_get($colors, 'text-primary-contrast'),
+  btn-secondary-hover : #5da5ec,
+  btn-secondary-active : map_get($colors, 'main-dark'),
+);

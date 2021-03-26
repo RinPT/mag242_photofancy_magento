@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.media">
+            <block class="Photofancy\Theme\Block\Product\View\App" name="product.info.media.app" template="product/view/app.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.main">
+            <container name="product.info.configure" htmlTag="div" htmlClass="product-add-form" before="product.info.overview">
+
+                <block class="Photofancy\Theme\Block\Product\View\ButtonConfigure"
+                       name="product.info.button.configure" template="product/view/button_configure.phtml"
+                       before="-" />
+
+            </container>
+        </referenceContainer>
+    </body>
+</page>

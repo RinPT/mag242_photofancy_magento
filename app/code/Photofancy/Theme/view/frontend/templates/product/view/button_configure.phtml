@@ -1,0 +1,32 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <div class="actions full-width-btn">
+                <button id="btnDesigner" type="button" title="Jetzt gestalten" class="action primary tocart" >
+                    <span>Jetzt gestalten</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        require([ 'jquery' ], function($) {
+
+            $(document).ready(function() {
+
+                $( "#btnDesigner" ).click(function() {
+                    window.location.href = '/designer?sku=' + $('span[itemprop="sku"]').text();
+                });
+
+            });
+
+        });
+
+    </script>
+<?php endif; ?>

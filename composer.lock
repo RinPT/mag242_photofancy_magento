@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2f7fcd2b70229522b66468110d7a1bb",
+    "content-hash": "3993844bb5dcb0fda1c5e5ba373b0d51",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -106,31 +106,6 @@
                 "proprietary"
             ],
             "description": "Implements FAQ functionality on Magento 2 store"
-        },
-        {
-            "name": "aitoc/address-autocomplete",
-            "version": "1.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.aitoc.com/community/packages/address-autocomplete_1.0.0.zip"
-            },
-            "require": {
-                "aitoc/core": ">=1.0.8",
-                "php": ">=7.0.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Aitoc\\AddressAutocomplete\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Google Address Autocomplete by Aitoc"
         },
         {
             "name": "aitoc/advanced-permissions",

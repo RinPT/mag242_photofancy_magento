@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3993844bb5dcb0fda1c5e5ba373b0d51",
+    "content-hash": "5b0223e45c5a7b7dcb392cd1f518ad7b",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19977,6 +19977,82 @@
                 "AFL-3.0"
             ],
             "description": "XML sitemap module for Magento 2"
+        },
+        {
+            "name": "mailjet/mailjet-apiv3-php",
+            "version": "v1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mailjet/mailjet-apiv3-php.git",
+                "reference": "7b94fa629d46fa5ba3826ed4596674942944520d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mailjet/mailjet-apiv3-php/zipball/7b94fa629d46fa5ba3826ed4596674942944520d",
+                "reference": "7b94fa629d46fa5ba3826ed4596674942944520d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~7.0|~6.0|~5.3",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpunit/phpunit": "^4.8.36|^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mailjet": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mailjet",
+                    "email": "dev@mailjet.com",
+                    "homepage": "https://dev.mailjet.com"
+                }
+            ],
+            "description": "PHP wrapper for the Mailjet API",
+            "homepage": "https://github.com/mailjet/mailjet-apiv3-php/",
+            "keywords": [
+                "Mailjet",
+                "api",
+                "email",
+                "php",
+                "v3"
+            ],
+            "support": {
+                "issues": "https://github.com/mailjet/mailjet-apiv3-php/issues",
+                "source": "https://github.com/mailjet/mailjet-apiv3-php/tree/v1.5.1"
+            },
+            "time": "2020-12-21T16:30:15+00:00"
+        },
+        {
+            "name": "mailjet/mailjet-magento2",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/mailjet/mailjet-magento2/mailjet-mailjet-magento2-1.0.0.0.zip",
+                "shasum": "4c0888f0bb8d8d429d44c5babe6c777462153bbc"
+            },
+            "require": {
+                "mailjet/mailjet-apiv3-php": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Mailjet\\Mailjet\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "description": "Connect Mailjet with Magento"
         },
         {
             "name": "maxmind-db/reader",

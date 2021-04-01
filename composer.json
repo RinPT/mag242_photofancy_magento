@@ -35,6 +35,7 @@
         "mageplaza/module-image-optimizer": "^4.0",
         "mageworx/module-seosuiteultimate": "^2.33",
         "mageworx/module-shippingrulesmeta": "^2.10",
+        "mailjet/mailjet-magento2": "^1.0",
         "mpdf/mpdf": "^8.0",
         "payone-gmbh/magento-2": "^3.2",
         "splendidinternet/mage2-locale-de-de": "^1.63",

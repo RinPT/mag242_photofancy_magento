@@ -5,7 +5,7 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
  * Class SaveButton
- * @package WeltPixel\Sitemap\Block\Adminhtml\Sitemap\Edit
+ * @package WeltPixel\ProductLabels\Block\Adminhtml\ProductLabels\Edit
  */
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {

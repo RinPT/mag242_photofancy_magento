@@ -45,10 +45,10 @@ class ConfigView {
                 $gridImageWidth = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_GRID_WIDTH,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                 $gridImageHeight = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_GRID_HEIGHT,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                 if (strlen($gridImageWidth)) {
-                    $result['width'] = $gridImageWidth;
+                    $result['width'] = (int)$gridImageWidth;
                 }
                 if (strlen($gridImageHeight)) {
-                    $result['height'] = $gridImageHeight;
+                    $result['height'] = (int)$gridImageHeight;
                 }
                 if ($mediaId == 'category_page_grid_hover') {
                     $result['type'] = 'weltpixel_hover_image';
@@ -59,10 +59,10 @@ class ConfigView {
                 $listImageWidth = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_LIST_WIDTH,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                 $listImageHeight = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_LIST_HEIGHT,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                 if (strlen($listImageWidth)) {
-                    $result['width'] = $listImageWidth;
+                    $result['width'] = (int)$listImageWidth;
                 }
                 if (strlen($listImageHeight)) {
-                    $result['height'] = $listImageHeight;
+                    $result['height'] = (int)$listImageHeight;
                 }
                 if ($mediaId == 'category_page_list_hover') {
                     $result['type'] = 'weltpixel_hover_image';
@@ -89,10 +89,10 @@ class ConfigView {
                     $gridImageWidth = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_GRID_WIDTH,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                     $gridImageHeight = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_GRID_HEIGHT,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                     if (strlen($gridImageWidth)) {
-                        $options['width'] = $gridImageWidth;
+                        $options['width'] = (int)$gridImageWidth;
                     }
                     if (strlen($gridImageHeight)) {
-                        $options['height'] = $gridImageHeight;
+                        $options['height'] = (int)$gridImageHeight;
                     }
                     if ($mediaId == 'category_page_grid_hover') {
                         $options['type'] = 'weltpixel_hover_image';
@@ -103,10 +103,10 @@ class ConfigView {
                     $listImageWidth = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_LIST_WIDTH,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                     $listImageHeight = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_CATEGORYPAGE_IMAGE_LIST_HEIGHT,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
                     if (strlen($listImageWidth)) {
-                        $options['width'] = $listImageWidth;
+                        $options['width'] = (int)$listImageWidth;
                     }
                     if (strlen($listImageHeight)) {
-                        $options['height'] = $listImageHeight;
+                        $options['height'] = (int)$listImageHeight;
                     }
                     if ($mediaId == 'category_page_list_hover') {
                         $options['type'] = 'weltpixel_hover_image';

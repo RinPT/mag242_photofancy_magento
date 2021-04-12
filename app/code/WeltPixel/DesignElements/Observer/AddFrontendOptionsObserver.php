@@ -16,7 +16,8 @@ class AddFrontendOptionsObserver implements ObserverInterface
 
 
     const XML_PATH_DESIGN_ELEMENTS_BOOTSTRAP_GRID = 'weltpixel_design_elements/general/bootstrap_grids';
-    const XML_PATH_DESIGN_ELEMENTS_ICONS = 'weltpixel_design_elements/general/icons';
+    const XML_PATH_DESIGN_ELEMENTS_ICONS_CORE = 'weltpixel_design_elements/general/icons_core';
+    const XML_PATH_DESIGN_ELEMENTS_ICONS_EXTENDED = 'weltpixel_design_elements/general/icons_extended';
     const XML_PATH_DESIGN_ELEMENTS_BOOTSTRAP_TABLES = 'weltpixel_design_elements/general/bootstrap_tables';
     const XML_PATH_DESIGN_ELEMENTS_TOGGLES_ACCORDIONS_TABS = 'weltpixel_design_elements/general/toggles_accordions_tabs';
     const XML_PATH_DESIGN_ELEMENTS_PRICING_BOXES = 'weltpixel_design_elements/general/pricing_boxes';
@@ -31,7 +32,8 @@ class AddFrontendOptionsObserver implements ObserverInterface
     const XML_PATH_DESIGN_ELEMENTS_FLEXSLIDER = 'weltpixel_design_elements/general/flexslider';
     const XML_PATH_DESIGN_ELEMENTS_BUTTONS = 'weltpixel_design_elements/general/buttons';
     const XML_PATH_DESIGN_ELEMENTS_SECTIONS = 'weltpixel_design_elements/general/sections';
-    const XML_PATH_DESIGN_ELEMENTS_ANIMATIONS = 'weltpixel_design_elements/general/animations';
+    const XML_PATH_DESIGN_ELEMENTS_ANIMATIONS_CORE = 'weltpixel_design_elements/general/animations_core';
+    const XML_PATH_DESIGN_ELEMENTS_ANIMATIONS_EXTENDED = 'weltpixel_design_elements/general/animations_extended';
     const XML_PATH_DESIGN_ELEMENTS_AOS_ANIMATION = 'weltpixel_design_elements/general/aos_animation';
     const XML_PATH_DESIGN_ELEMENTS_BTT_BUTTON = 'weltpixel_design_elements/general/btt_button';
     const XML_PATH_DESIGN_ELEMENTS_BTT_BUTTON_PRODUCTPAGE = 'weltpixel_design_elements/btt_product_page/enable';
@@ -64,7 +66,8 @@ class AddFrontendOptionsObserver implements ObserverInterface
         }
 
         $includeBootstrapGrid = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_BOOTSTRAP_GRID,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-        $includeFonts = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ICONS,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $includeFontsCore = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ICONS_CORE,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $includeFontsExtended = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ICONS_EXTENDED,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeBootstrapTables = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_BOOTSTRAP_TABLES,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeTogglesAccordionsabs = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_TOGGLES_ACCORDIONS_TABS,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includePricingBoxes = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_PRICING_BOXES,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
@@ -79,7 +82,8 @@ class AddFrontendOptionsObserver implements ObserverInterface
         $includeFlexSlider = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_FLEXSLIDER,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeButtons = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_BUTTONS,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeSections = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_SECTIONS,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-        $includeAnimations = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ANIMATIONS,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $includeAnimationsCore = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ANIMATIONS_CORE,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $includeAnimationsExtended = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_ANIMATIONS_EXTENDED,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeAOSAnimation = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_AOS_ANIMATION,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeBttButton = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_BTT_BUTTON,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $includeProductPageBttButton = $this->scopeConfig->getValue(self::XML_PATH_DESIGN_ELEMENTS_BTT_BUTTON_PRODUCTPAGE,  \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
@@ -87,8 +91,11 @@ class AddFrontendOptionsObserver implements ObserverInterface
         if ($includeBootstrapGrid) {
             $layout->getUpdate()->addHandle('weltpixel_design_elements_bootstrap_grid');
         }
-        if ($includeFonts) {
-            $layout->getUpdate()->addHandle('weltpixel_design_elements_fonts');
+        if ($includeFontsCore) {
+            $layout->getUpdate()->addHandle('weltpixel_design_elements_fonts_core');
+        }
+        if ($includeFontsExtended) {
+            $layout->getUpdate()->addHandle('weltpixel_design_elements_fonts_extended');
         }
         if ($includeBootstrapTables) {
             $layout->getUpdate()->addHandle('weltpixel_design_elements_bootstrap_tables');
@@ -132,8 +139,11 @@ class AddFrontendOptionsObserver implements ObserverInterface
         if ($includeSections) {
             $layout->getUpdate()->addHandle('weltpixel_design_elements_sections');
         }
-        if ($includeAnimations) {
-            $layout->getUpdate()->addHandle('weltpixel_design_elements_animations');
+        if ($includeAnimationsCore) {
+            $layout->getUpdate()->addHandle('weltpixel_design_elements_animations_core');
+        }
+        if ($includeAnimationsExtended) {
+            $layout->getUpdate()->addHandle('weltpixel_design_elements_animations_extended');
         }
         if ($includeAOSAnimation) {
             $layout->getUpdate()->addHandle('weltpixel_design_elements_aos_animation');

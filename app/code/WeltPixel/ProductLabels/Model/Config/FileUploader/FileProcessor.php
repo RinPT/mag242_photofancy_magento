@@ -94,7 +94,7 @@ class FileProcessor
      */
     public function getImageDetails($file) {
         $imageUrl = $this->getFinalMediaUrl($file);
-        $imageDetails = getimagesize($imageUrl);
+        $imageDetails = getimagesize($this->mediaDirectory->getAbsolutePath() . $file);
 
         $result = [];
         $result['width'] = $imageDetails[0];

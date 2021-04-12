@@ -74,7 +74,7 @@ class InstallSchema implements InstallSchemaInterface
             'priority',
             \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
             '2,1',
-            ['nullable' => false, 'default' => 0.5],
+            ['nullable' => false, 'default' => '0.5'],
             'Priority'
         )->addIndex(
             $setup->getIdxName(

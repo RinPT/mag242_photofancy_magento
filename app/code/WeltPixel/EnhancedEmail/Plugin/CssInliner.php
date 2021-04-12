@@ -208,7 +208,7 @@ nav.navigation ul li a{
 
 
 h1 {
-    color: $headingOneFontColor;
+    color: $headingOneFontColor !important;
     font-family: $hOneFontfamily;
     font-weight: $headingOneFontWeight;
     font-size: $headingOneFontSize;
@@ -217,7 +217,7 @@ h1 {
     letter-spacing: $headingOneLatterSpacing;
 }
 h2 {
-    color: $headingTwooFontColor;
+    color: $headingTwooFontColor !important;
     font-family: $hTwoFontfamily;
     font-weight: $headingTwooFontWeight;
     font-size: $headingTwooFontSize;
@@ -226,7 +226,7 @@ h2 {
     letter-spacing: $headingTwooLatterSpacing;
 }
 h3, table.shipment-track th {
-    color: $headingThreeFontColor;
+    color: $headingThreeFontColor !important;
     font-family: $hThreeFontfamily;
     font-weight: $headingThreeFontWeight;
     font-size: $headingThreeFontSize;
@@ -235,7 +235,7 @@ h3, table.shipment-track th {
     letter-spacing: $headingThreeLatterSpacing;
 }
 p, table.shipment-track td {
-    color: $pFontColor;
+    color: $pFontColor !important;
     font-family: $paragraphFontFamily;
     font-weight: $pFontWeight;
     font-size: $pFontSize;

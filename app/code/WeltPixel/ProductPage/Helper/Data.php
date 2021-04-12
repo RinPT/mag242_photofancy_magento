@@ -582,4 +582,54 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getStickyCartDisplayModeMobile($storeId = null) {
         return $this->scopeConfig->getValue('weltpixel_product_page/sticky_addtocart/sticky_cart_mode_mobile', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
     }
+
+    /**
+     * @param int $storeId
+     * @return mixed
+     */
+    public function getStickyTabsAlignment($storeId = null) {
+        return $this->scopeConfig->getValue('weltpixel_product_page/general/tabs_alignment', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param int $storeId
+     * @return mixed
+     */
+    public function getStickyTabsBarColor($storeId = null) {
+        return $this->scopeConfig->getValue('weltpixel_product_page/general/tabs_bar_background_color', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return int
+     */
+    public function getProductPageWidth($storeId = null) {
+        return $this->scopeConfig->getValue('weltpixel_frontend_options/section_width/product_page', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return int
+     */
+    public function getProductPagePadding($storeId = null) {
+        return $this->scopeConfig->getValue('weltpixel_frontend_options/section_width/page_main_padding', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param int $storeId
+     * @return boolean
+     */
+    public function isViewMoreLessListEnabled($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_product_page/general/view_more_less_list', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param int $storeId
+     * @return boolean
+     */
+    public function getViewMoreLessHeight($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_product_page/general/view_more_less_height', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
 }

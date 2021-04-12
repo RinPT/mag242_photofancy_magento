@@ -170,7 +170,7 @@ title,page_layout,meta_keywords,meta_description,identifier,content_heading,cont
 </div>
 </div>
 <div class=""mg-bottom-insta"">
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""497c20a7240342e6b2d8ac79ff33ae46"" instagram_access_token=""10458561472.497c20a.b17db60d4d7149e5aae460a31caf8961"" title=""#PEARL ON INSTAGRAM"" description=""Instagram Fresh Styles, Designer Brands‎"" images_per_row=""col-4"" limit=""4"" sort_by=""none"" resolution=""standard_resolution"" feed_type=""user"" user_id=""10458561472"" type_name=""WeltPixel InstagramWidget""}}
+{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram""  instagram_api_type=""javascript_parser"" title=""#PEARL ON INSTAGRAM"" description=""Instagram Fresh Styles, Designer Brands‎"" images_per_row=""col-4"" limit=""4"" resolution_jsparser=""original"" feed_type_jsparser=""user"" user_name=""weltpixel_themes""}}
 </div>
 </div>
 </div>

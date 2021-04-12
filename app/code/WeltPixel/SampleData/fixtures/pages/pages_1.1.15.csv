@@ -76,7 +76,7 @@ Use this flexible solution and grow your business.</span></h3>
 </div>
 <div class=""container-v12"">
     <div class=""row-instagram-v12 nomarginleft"">
-        {{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""e21514b30c9d44d4b48c52bade4b56ed"" instagram_access_token=""6199620633.e21514b.092dd49e04644ff588ea1e0d78c8e09a"" title=""#PEARL GLASSES ON INSTAGRAM"" description=""Pearl Theme. We would love to meet you.""  images_per_row=""col-6""  limit=""6""  sort_by=""none"" resolution=""standard_resolution"" feed_type=""user"" user_id=""6199620633""}}
+        {{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram""  instagram_api_type=""javascript_parser"" title=""#PEARL GLASSES ON INSTAGRAM"" description=""Pearl Theme. We would love to meet you.""  images_per_row=""col-6""  limit=""6""  resolution_jsparser=""original"" feed_type_jsparser=""user"" user_name=""weltpixel_themes""}}
     </div>
 </div>
 ",1,,,,,,,,"

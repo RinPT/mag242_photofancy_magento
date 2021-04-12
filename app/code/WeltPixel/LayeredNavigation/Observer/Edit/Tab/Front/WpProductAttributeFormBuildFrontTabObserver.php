@@ -131,7 +131,7 @@ class WpProductAttributeFormBuildFrontTabObserver implements ObserverInterface
                 'name' => 'wp_display_options',
                 'label' => __("Show Attribute Options as"),
                 'title' => __('Can be used only with catalog input type Dropdown, Multiple Select and Price'),
-                'note' => __('[Closed] option not applicable on [Slide Down] Sidebar Style.'),
+                'note' => __('[Closed] option not applicable on [Slide Down] Sidebar Style. <br/> The [Closed] option is recommended if you’re using the Horizontal Design for the Layered Navigation'),
                 'values' => $value,
                 'value' => $this->_getDisplayOption(),
             ]

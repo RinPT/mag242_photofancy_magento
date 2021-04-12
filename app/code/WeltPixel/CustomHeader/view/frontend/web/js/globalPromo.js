@@ -94,7 +94,7 @@ define(["jquery", 'mage/cookies'], function ($) {
             jQuery('#next').click();
         }
 
-        $(node).find('#slides ul li .quoteContainer').css('display', 'flex');
+        $(node).find('#slides ul li .quoteContainer').css('display', 'block');
 
     };
 

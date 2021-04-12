@@ -15,6 +15,7 @@ class HorizontalSidebarDesignVersion implements SourceInterface, OptionSourceInt
      */
     const VERSION_1  = 'v1';
     const VERSION_2 = 'v2';
+    const VERSION_3 = 'v3';
 
 
     /**
@@ -26,7 +27,8 @@ class HorizontalSidebarDesignVersion implements SourceInterface, OptionSourceInt
     {
         return [
             self::VERSION_1 => __('Version 1'),
-            self::VERSION_2 => __('Version 2')
+            self::VERSION_2 => __('Version 2'),
+            self::VERSION_3 => __('Version 3'),
         ];
     }
 

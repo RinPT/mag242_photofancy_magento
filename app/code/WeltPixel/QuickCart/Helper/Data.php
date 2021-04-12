@@ -580,7 +580,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getMobileBreakPoint($storeId = null)
     {
         $wpMobileBreakpoint = str_replace("px", "", $this->scopeConfig->getValue('weltpixel_frontend_options/breakpoints/screen__m', ScopeInterface::SCOPE_STORE, $storeId));
-        if (isset($wpMobileBreakpoint)) {
+        if (isset($wpMobileBreakpoint) && strlen($wpMobileBreakpoint)) {
             return $wpMobileBreakpoint;
         }
 

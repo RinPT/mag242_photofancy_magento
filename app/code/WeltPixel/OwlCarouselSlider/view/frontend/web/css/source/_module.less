@@ -23,6 +23,15 @@
 .custom-slider {
 	position: relative;
 	padding: 0 0 20px;
+    .banner-image {
+        img {
+            height: auto;
+        }
+    }
+}
+
+.products-grid .owl-item .product-item .product-item-details .price-box .old-price {
+    margin-left: 0;
 }
 
 .owl-carousel.products {
@@ -359,13 +368,16 @@
                             text-indent: unset;
                             width: auto;
                             line-height: 40px;
-                            color: #000;
+                            color: #555555;
                             padding-left: 25px;
                             padding-right: 10px;
                             &:before {
                                 left: 0px;
                             }
                         }
+                    }
+                    &.owl-prev-bottom:hover {
+                        color: #000;
                     }
 					left: 15px;
 					[class*=owl-carousel-products-] & {
@@ -379,7 +391,7 @@
 						width: 26px;
 						height: 25px;
 						content: "";
-						background-color: black;
+						background-color: #555555;
 						text-indent: 0;
 						border-top: none;
 						transform: none;
@@ -401,7 +413,7 @@
                             text-indent: unset;
                             width: auto;
                             line-height: 40px;
-                            color: #000;
+                            color: #555555;
                             padding-left: 10px;
                             padding-right: 25px;
                             &:before {
@@ -409,6 +421,9 @@
                                 right: 0px;
                             }
                         }
+                    }
+                    &.owl-next-bottom:hover {
+                        color: #000;
                     }
 					right: 15px;
 					[class*=owl-carousel-products-] & {
@@ -422,7 +437,7 @@
 						width: 26px;
 						height: 25px;
 						content: "";
-						background-color: black;
+						background-color: #555555;
 						border-top: none;
 						transform: rotate(180deg);
 						-webkit-mask-image: url(../WeltPixel_OwlCarouselSlider/images/arrow.svg);

@@ -10,7 +10,8 @@
                 <responsive_helpers>1</responsive_helpers>
                 <pricing_boxes>1</pricing_boxes>
                 <icon_boxes>1</icon_boxes>
-                <icons>1</icons>
+                <icons_core>1</icons_core>
+                <icons_extended>1</icons_extended>
                 <headings_blockquotes>1</headings_blockquotes>
                 <flexslider>1</flexslider>
                 <dividers>1</dividers>
@@ -18,7 +19,8 @@
                 <brand_lists>1</brand_lists>
                 <bootstrap_tables>1</bootstrap_tables>
                 <bootstrap_grids>1</bootstrap_grids>
-                <animations>1</animations>
+                <animations_core>1</animations_core>
+                <animations_extended>1</animations_extended>
                 <aos_animation>1</aos_animation>
                 <alert_boxes>1</alert_boxes>
                 <btt_button>1</btt_button>

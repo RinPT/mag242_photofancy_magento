@@ -51,6 +51,17 @@ try {
     $gtmHelper = $this->helper('WeltPixel\GoogleTagManager\Helper\Data');
     $gtmHelperClassName = 'WeltPixel\GoogleTagManager\Helper\Data';
 } catch (\Exception $ex) {}
+$productLabelsHelper = null;
+$productLabelsEnabled = false;
+$productLabelsEnabledForRelated = false;
+$productLabelsEnabledForUpsell = false;
+$productLabelsEnabledForCrossell = false;
+try {
+    $productLabelsHelper = $this->helper('WeltPixel\ProductLabels\Helper\Data');
+    $productLabelsEnabledForRelated = $productLabelsHelper->enableForRelatedProducts();
+    $productLabelsEnabledForUpsell = $productLabelsHelper->enableForUpsellProducts();
+    $productLabelsEnabledForCrossell = $productLabelsHelper->enableForCrossellProducts();
+} catch (\Exception $ex) {}
 ?>
 <?php
 
@@ -76,6 +87,7 @@ switch ($type = $block->getType()) {
             $description = false;
             $listValue = $currentProduct->getName() . ' ' . __('Related Products');
             $listValueId = 'related_products';
+            $productLabelsEnabled = $productLabelsEnabledForRelated;
         }
         break;
 
@@ -100,6 +112,7 @@ switch ($type = $block->getType()) {
             $description = false;
             $listValue = $currentProduct->getName() . ' ' . __('Related Products');
             $listValueId = 'related_products';
+            $productLabelsEnabled = $productLabelsEnabledForRelated;
         }
         break;
 
@@ -122,6 +135,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = false;
             $listValue = $currentProduct->getName() . ' ' . __('Upsell Products');
             $listValueId = 'upsell_products';
+            $productLabelsEnabled = $productLabelsEnabledForUpsell;
         }
         break;
 
@@ -145,6 +159,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = false;
             $listValue = $currentProduct->getName() . ' ' . __('Upsell Products');
             $listValueId = 'upsell_products';
+            $productLabelsEnabled = $productLabelsEnabledForUpsell;
         }
         break;
 
@@ -166,6 +181,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = false;
             $listValue = __('Crossel Products');
             $listValueId = 'crossell_products';
+            $productLabelsEnabled = $productLabelsEnabledForCrossell;
         }
         break;
 
@@ -187,6 +203,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = false;
             $listValue = __('Crossel Products');
             $listValueId = 'crossel_products';
+            $productLabelsEnabled = $productLabelsEnabledForCrossell;
         }
         break;
 
@@ -210,6 +227,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = false;
             $listValue = __('New Products');
             $listValueId = 'new_products';
+            $productLabelsEnabled = false;
         }
         break;
 
@@ -412,7 +430,10 @@ switch ($type = $block->getType()) {
 
                             <div class="product-item-info <?php /* @escapeNotVerified */ echo $available; ?>">
                                 <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
-                                <a <?php if ($gtmHelper && $gtmHelper->isProductClickTrackingEnabled()) :
+                                <a <?php if ($productLabelsEnabled) : ?>
+                                    data-wpproductlabel="1" data-product-id="<?php echo $_item->getId() ?>"
+                                <?php endif; ?>
+                                    <?php if ($gtmHelper && $gtmHelper->isProductClickTrackingEnabled()) :
                                         echo $this->helper($gtmHelperClassName)->addProductClick($_item, $iterator-1, $listValue, $listValueId);
                                     endif; ?>
                                         href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">

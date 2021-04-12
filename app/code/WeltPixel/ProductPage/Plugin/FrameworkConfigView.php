@@ -52,10 +52,10 @@ class FrameworkConfigView
                 $height = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_PRODUCTPAGE_IMAGE_MAIN_HEIGHT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
 
                 if ($width) {
-                    $result['width'] = $width;
+                    $result['width'] = (int)$width;
                 }
                 if ($height) {
-                    $result['height'] = $height;
+                    $result['height'] = (int)$height;
                 }
             }
 
@@ -65,10 +65,10 @@ class FrameworkConfigView
                 $height = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_PRODUCTPAGE_IMAGE_THUMB_HEIGHT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
 
                 if ($width) {
-                    $result['width'] = $width;
+                    $result['width'] = (int)$width;
                 }
                 if ($height) {
-                    $result['height'] = $height;
+                    $result['height'] = (int)$height;
                 }
             }
         }
@@ -93,10 +93,10 @@ class FrameworkConfigView
                     $height = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_PRODUCTPAGE_IMAGE_MAIN_HEIGHT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
 
                     if ($width) {
-                        $options['width'] = $width;
+                        $options['width'] = (int)$width;
                     }
                     if ($height) {
-                        $options['height'] = $height;
+                        $options['height'] = (int)$height;
                     }
                 }
 
@@ -106,10 +106,10 @@ class FrameworkConfigView
                     $height = trim($this->scopeConfig->getValue(self::XML_PATH_WELTPIXEL_PRODUCTPAGE_IMAGE_THUMB_HEIGHT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
 
                     if ($width) {
-                        $options['width'] = $width;
+                        $options['width'] = (int)$width;
                     }
                     if ($height) {
-                        $options['height'] = $height;
+                        $options['height'] = (int)$height;
                     }
                 }
             }

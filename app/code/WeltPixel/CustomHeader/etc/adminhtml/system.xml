@@ -289,6 +289,13 @@
                         <field id="version">0</field>
                     </depends>
                 </field>
+                <field id="search_icon_line_height" translate="label" type="text" sortOrder="205" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search Icon Line Height</label>
+                    <comment>Set line height for Search icon. Example: 36px</comment>
+                    <depends>
+                        <field id="version">0</field>
+                    </depends>
+                </field>
                 <field id="border_width" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Field Border Width</label>
                     <comment>Set borders for Search field. Example: 0 0 1px 0</comment>

@@ -7,7 +7,7 @@
         "magento/framework": "*"
     },
     "type": "magento2-theme",
-    "version": "101.10.5",
+    "version": "101.10.7",
     "license": [
         "OSL-3.0",
         "AFL-3.0"

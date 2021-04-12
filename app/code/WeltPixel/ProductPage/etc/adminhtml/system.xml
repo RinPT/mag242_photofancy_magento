@@ -96,13 +96,31 @@
 				</field>
 				<field id="tabs_version" translate="label" type="select" sortOrder="124" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Tabs Version</label>
-					<comment>Select tabs version. Also you can control tab padding from product page CSS options: Product Page -> Other CSS Options -> Tab Container Padding.</comment>
+					<comment>Tab Version - Select Tab Version. You can also control Tab Padding from the Product Page CSS Options</comment>
 					<source_model>WeltPixel\ProductPage\Model\Config\Source\TabsVersion</source_model>
 					<depends>
 						<field id="tabs_layout">tab</field>
 					</depends>
 				</field>
-				<field id="accordion_version" translate="label" type="select" sortOrder="125" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tabs_alignment" translate="label" type="select" sortOrder="125" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Alignment</label>
+                    <comment>Align Tabs Left or Center</comment>
+                    <source_model>WeltPixel\ProductPage\Model\Config\Source\TabsAlignment</source_model>
+                    <depends>
+                        <field id="tabs_layout">tab</field>
+                        <field id="tabs_version">2</field>
+                    </depends>
+                </field>
+                <field id="tabs_bar_background_color" translate="label" type="text" sortOrder="126" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Tab Background Color</label>
+                    <comment>Select the background color for the Sticky Tab bar.</comment>
+                    <depends>
+                        <field id="tabs_layout">tab</field>
+                        <field id="tabs_version">2</field>
+                    </depends>
+                    <validate>color {required:false, hash:true}</validate>
+                </field>
+				<field id="accordion_version" translate="label" type="select" sortOrder="127" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Accordion Version</label>
 					<comment>Select accordion version.</comment>
 					<source_model>WeltPixel\ProductPage\Model\Config\Source\AccordionVersion</source_model>
@@ -110,7 +128,7 @@
 						<field id="tabs_layout">accordion</field>
 					</depends>
 				</field>
-				<field id="accordion_collapsible" translate="label" type="select" sortOrder="127" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="accordion_collapsible" translate="label" type="select" sortOrder="128" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Accordion Collapsible</label>
 					<comment>Select accordion collapsible to be able to close all panels.</comment>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -119,7 +137,24 @@
 						<field id="accordion_version">0</field>
 					</depends>
 				</field>
-				<field id="qty_type" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="view_more_less_list" translate="label" type="select" sortOrder="129" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show More/Less</label>
+                    <comment>Enable View more/less.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="tabs_layout">list</field>
+                    </depends>
+                </field>
+                <field id="view_more_less_height" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>More/Less section height</label>
+                    <comment>Set the height of the View More/Less section of information list. Example: 150px.</comment>
+                    <depends>
+                        <field id="tabs_layout">list</field>
+                        <field id="view_more_less_list">1</field>
+
+                    </depends>
+                </field>
+				<field id="qty_type" translate="label" type="select" sortOrder="131" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Quantity Input Type</label>
 					<comment>Select Input type for quantity field.</comment>
 					<source_model>WeltPixel\ProductPage\Model\Config\Source\QtyType</source_model>
@@ -667,6 +702,9 @@
             </group>
             <group id="sticky_addtocart" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Sticky Add To Cart</label>
+                <depends>
+                    <field id="weltpixel_product_page/general/tabs_version" negative="1">2</field>
+                </depends>
                 <field id="enable_desktop" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable On Desktop</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

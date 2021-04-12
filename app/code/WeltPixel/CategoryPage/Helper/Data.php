@@ -177,6 +177,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getRelatedProductListItemsTemplate()
     {
         $template = 'Magento_Catalog::product/list/items.phtml';
+        if ($this->scopeConfig->getValue('weltpixel_productlabels/general/enable_related_products', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
+            $template = 'WeltPixel_ProductLabels::product/list/items.phtml';
+        }
         if ($this->scopeConfig->getValue('weltpixel_ga4/general/product_click_tracking', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $template = 'WeltPixel_GA4::product/list/items.phtml';
         }
@@ -196,6 +199,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getCrossellProductListItemsTemplate()
     {
         $template = 'Magento_Catalog::product/list/items.phtml';
+        if ($this->scopeConfig->getValue('weltpixel_productlabels/general/enable_crossell_products', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
+            $template = 'WeltPixel_ProductLabels::product/list/items.phtml';
+        }
         if ($this->scopeConfig->getValue('weltpixel_ga4/general/product_click_tracking', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $template = 'WeltPixel_GA4::product/list/items.phtml';
         }
@@ -214,6 +220,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getUpsellProductListItemsTemplate()
     {
         $template = 'Magento_Catalog::product/list/items.phtml';
+        if ($this->scopeConfig->getValue('weltpixel_productlabels/general/enable_upsell_products', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
+            $template = 'WeltPixel_ProductLabels::product/list/items.phtml';
+        }
         if ($this->scopeConfig->getValue('weltpixel_ga4/general/product_click_tracking', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $template = 'WeltPixel_GA4::product/list/items.phtml';
         }

@@ -469,5 +469,59 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return ($mobileThreshold) ? $mobileThreshold : 768;
     }
 
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalV3FiltersButtonColor($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_filters_button_color', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalV3FiltersTextColor($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_filters_text_color', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalV3FiltersButtonHoverColor($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_filters_button_hover_color', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalV3FiltersTextHoverColor($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_filters_text_hover_color', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalFiltersBorder($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_border', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
+
+    /**
+     * @param null $storeId
+     * @return string
+     */
+    public function getHorizontalFiltersBorderRadius($storeId = null)
+    {
+        return $this->scopeConfig->getValue('weltpixel_layerednavigation/sidebar/horizontal_v3_border_radius', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
 
 }

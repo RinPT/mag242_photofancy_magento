@@ -3,19 +3,14 @@ title,page_layout,meta_keywords,meta_description,identifier,content_heading,cont
 <div class=""container-inst"">
 
 <img src=""{{media url=""wysiwyg/pearl_theme/x-1-row.png""}}"" alt=""Icon"" class=""center""/>
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""8098026109"" instagram_access_token=""8098026109.8ba827a.e5648a95223f4f09931d9ab7d1809b62"" title=""Instagram images on <b>one Row</b>"" description=""Showcase your instagram posts into one single row."" images_in_new_tab=""0"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" limit=""6"" sort_by=""random"" resolution=""standard_resolution"" feed_type=""user"" user_id=""8098026109""}}
-
+{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_api_type=""javascript_parser"" title=""Instagram images on <b>one Row</b>"" description=""Showcase your instagram posts into one single row."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" images_alt_text=""1"" optimize_image_layout=""0"" enable_lazyload=""0"" limit=""6"" resolution_jsparser=""original"" feed_type_jsparser=""user"" user_name=""weltpixel_themes""}}
 
 <img src=""{{media url=""wysiwyg/pearl_theme/x-2-rows.png""}}"" alt=""Icon"" class=""center""/>
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""8098026109"" instagram_access_token=""8098026109.8ba827a.e5648a95223f4f09931d9ab7d1809b62"" title=""Instagram images on <b>two rows</b>"" description="" Display Instagram Images from your Instagram account in two rows."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" limit=""12"" sort_by=""random"" resolution=""standard_resolution"" feed_type=""user"" user_id=""8098026109""}}
+{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_api_type=""javascript_parser""  title=""Instagram images on <b>two rows</b>"" description="" Display Instagram Images from your Instagram account in two rows."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" limit=""12"" sort_by=""random"" resolution_jsparser=""original"" feed_type_jsparser=""user"" user_id=""weltpixel_themes""}}
 
 
 <img src=""{{media url=""wysiwyg/pearl_theme/x-opt.png""}}"" alt=""Icon"" class=""center""/>
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""7096781289"" instagram_access_token=""7096781289.f6a49ea.c1c73a2b225d48a2a54ec98b9606bea3"" title=""<b>Optimized</b> Image layout"" description=""Set your Instagram posts to look neat and organized."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""1"" limit=""17"" sort_by=""least-recent"" resolution=""standard_resolution"" feed_type=""user"" user_id=""7096781289""}}
-
-
-<img src=""{{media url=""wysiwyg/pearl_theme/x-account.png""}}"" alt=""Icon"" class=""center""/>
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""8098026109"" instagram_access_token=""8098026109.8ba827a.e5648a95223f4f09931d9ab7d1809b62"" title=""@pearl.theme  |  <b>Instagram Page</b>"" description=""Display random Images from your Instagram account."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" limit=""18"" sort_by=""random"" resolution=""standard_resolution"" feed_type=""user"" user_id=""8098026109""}}
+{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram""instagram_api_type=""javascript_parser"" title=""<b>Optimized</b> Image layout"" description=""Set your Instagram posts to look neat and organized."" images_in_new_tab=""1"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""1"" limit=""12"" resolution_jsparser=""original"" feed_type_jsparser=""user"" user_id=""weltpixel_themes""}}
 
 </div>
 ",1,,,,,,,,"

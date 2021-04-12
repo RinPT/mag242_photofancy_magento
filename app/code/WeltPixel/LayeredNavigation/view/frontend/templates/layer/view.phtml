@@ -29,6 +29,14 @@ $horizontalDesignClass = ($horizontalSbDesignVersion === '' ? '' : 'horizontal-'
 $filterAlignmentClass = ($horizontalSbDesignVersion === 'v2' ? 'filter-align-' . $filterPosition : '');
 $selectedFiltersClass = ($selectedFilters === '1' ? 'show-selected-filters' : 'hide-selected-filters');
 
+/* Horizontal Sidebar Design V3 Settings */
+$filtersBorder = ($_helper->getHorizontalFiltersBorder() ? $_helper->getHorizontalFiltersBorder() : '');
+$filtersBorderRadius = ($_helper->getHorizontalFiltersBorderRadius() ?  $_helper->getHorizontalFiltersBorderRadius() : '');
+$filterButtonColor = ($horizontalSbDesignVersion === 'v3' ? $_helper->getHorizontalV3FiltersButtonColor() : '');
+$filterTextColor = ($horizontalSbDesignVersion === 'v3' ? $_helper->getHorizontalV3FiltersTextColor() : '');
+$filterButtonHoverColor = ($horizontalSbDesignVersion === 'v3' ? $_helper->getHorizontalV3FiltersButtonHoverColor() : '');
+$filterTextHoverColor = ($horizontalSbDesignVersion === 'v3' ? $_helper->getHorizontalV3FiltersTextHoverColor() : '');
+
 /* Sticky Filters */
 $mobileBreakpoint = ($_helper->getMobileThreshold() === '' ? '768' : $_helper->getMobileThreshold());
 $isStickyFiltersEnabled = ($horizontalSbDesignVersion === 'v2' ? $_helper->isHorizontalSidebarStickyEnabled() : '0');
@@ -82,8 +90,11 @@ $isStickyFiltersEnabled = ($horizontalSbDesignVersion === 'v2' ? $_helper->isHor
                     <div data-role="title" class="filter-options-title">
                         <?= /* @escapeNotVerified */ __($filter->getName()) ?></div>
                     <div id="attr_<?php echo $attributeId ?>" data-role="content"
-                         class="filter-options-content"><?= /* @escapeNotVerified */
-                        $block->getChildBlock('renderer')->render($filter) ?></div>
+                         class="filter-options-content">
+                        <?php if ($horizontalSbDesignVersion === 'v3'):?>
+                            <div class="filter-options-content-title"> <?= /* @escapeNotVerified */ __($filter->getName()) ?></div>
+                        <?php endif;?>
+                        <?= /* @escapeNotVerified */ $block->getChildBlock('renderer')->render($filter) ?></div>
                 </div>
                 <?php endif; ?>
                 <?php endforeach; ?>
@@ -234,6 +245,27 @@ $isStickyFiltersEnabled = ($horizontalSbDesignVersion === 'v2' ? $_helper->isHor
     </script>
 
 </div>
-
-
-
+<?php if ($horizontalSbDesignVersion === 'v3') : ?>
+<style>
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item .filter-options-title{
+        background-color: <?php echo $filterButtonColor ?>;
+        color: <?php echo $filterTextColor ?>;
+        border: <?php echo $filtersBorder ?>;
+        border-radius: <?php echo $filtersBorderRadius ?>;
+        border-color: <?php echo $filterTextColor ?>;;
+    }
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item .filter-options-title:after {
+        color: <?php echo $filterTextColor ?>;
+    }
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item .filter-options-title:hover,
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item.active .filter-options-title,
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item.active .filter-options-title:after{
+        background-color: <?php echo $filterButtonHoverColor ?> ; ;
+        border-color: <?php echo $filterButtonHoverColor ?> ;
+        color: <?php echo $filterTextHoverColor ?> ;
+    }
+    body.page-layout-1column #layered-filter-block.horizontal-v3 .block-content.filter-content .filter-options .filter-options-item .filter-options-title:hover::after {
+        color:  <?php echo $filterTextHoverColor ?>;
+    }
+</style>
+<?php endif; ?>

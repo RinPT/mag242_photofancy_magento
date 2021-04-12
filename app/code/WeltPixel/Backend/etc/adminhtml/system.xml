@@ -43,6 +43,7 @@
                 <field id="enable_admin_notification" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enable WeltPixel Admin Notifications</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable to receive notifications about important Product Updates via the Magento Admin.</comment>
                 </field>
             </group>
             <group id="csp" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">

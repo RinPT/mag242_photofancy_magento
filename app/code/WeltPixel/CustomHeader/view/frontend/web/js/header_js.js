@@ -22,7 +22,6 @@ define(['jquery'], function ($) {
 					}
 				}
 			}
-            $(".page-header-v2 .minisearch-v2").detach().insertAfter('.minicart-wrapper').show();
 		},
 
 		resizeActions: function () {

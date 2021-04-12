@@ -14,6 +14,9 @@
                 <field id="enable_inline_edit" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable User Profile Inline Edit</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[ If enabled, allows the user to edit their profile inline, on the Profile page.<br/>
+                        Enabling this option will also load the content-tools.css file, needed for the editor.]]>
+                    </comment>
                     <depends>
                         <field id="enable">1</field>
                     </depends>

@@ -19,8 +19,13 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable/Disable the Bootstrap grid component.</comment>
                 </field>
-                <field id="icons" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Icons</label>
+                <field id="icons_core" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Core Icons</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable the Icons component.</comment>
+                </field>
+                <field id="icons_extended" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extended Icons</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable/Disable the Icons component.</comment>
                 </field>
@@ -94,8 +99,13 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable/Disable the Sections/Parallax component.</comment>
                 </field>
-                <field id="animations" translate="label" type="select" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Animations</label>
+                <field id="animations_core" translate="label" type="select" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Core Animations</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable the Animations component.</comment>
+                </field>
+                <field id="animations_extended" translate="label" type="select" sortOrder="172" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extended Animations</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable/Disable the Animations component.</comment>
                 </field>

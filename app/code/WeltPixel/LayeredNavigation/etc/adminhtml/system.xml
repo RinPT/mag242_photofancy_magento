@@ -107,8 +107,7 @@
                     </comment>
                 </field>
 
-                <field id="slide_down_height" translate="label" type="text" sortOrder="35" showInDefault="1"
-                       showInWebsite="1" showInStore="1">
+                <field id="slide_down_height" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Filter Box Height</label>
                     <comment>Slide Down Filter Box Height. Eg.500px</comment>
                     <tooltip>Set the height of slide down box.</tooltip>
@@ -117,8 +116,69 @@
                     </depends>
                 </field>
 
+                <field id="horizontal_v3_filters_button_color" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter Button Color</label>
+                    <comment>Choose the color of the filter buttons.</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                    <validate>color {required:false, hash:true}</validate>
+                </field>
 
-                <field id="filter_column_height" translate="label" type="text" sortOrder="40" showInDefault="1"
+                <field id="horizontal_v3_filters_text_color" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter Button Text Color</label>
+                    <comment>Choose the color of the text displayed on filter buttons.</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                    <validate>color {required:false, hash:true}</validate>
+                </field>
+
+                <field id="horizontal_v3_filters_button_hover_color" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter Button Hover Color</label>
+                    <comment>Choose the color of the filter buttons when hovered upon.</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                    <validate>color {required:false, hash:true}</validate>
+                </field>
+
+                <field id="horizontal_v3_filters_text_hover_color" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Filter Button Text Color</label>
+                    <comment>Choose the color of the text displayed on filter buttons when hovered upon.</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                    <validate>color {required:false, hash:true}</validate>
+                </field>
+
+                <field id="horizontal_v3_border" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Border</label>
+                    <comment>Eg. 1px solid black</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                </field>
+
+                <field id="horizontal_v3_border_radius" translate="label" type="text" sortOrder="45" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Border Radius</label>
+                    <comment>Eg. 35px</comment>
+                    <depends>
+                        <field id="sb_style">3</field>
+                        <field id="horizontal_sb_design_version">v3</field>
+                    </depends>
+                </field>
+
+
+                <field id="filter_column_height" translate="label" type="text" sortOrder="50" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Filter Column Height</label>
                     <comment>Slide Down Filter Column Height. Eg.250px</comment>
@@ -128,7 +188,7 @@
                     </depends>
                 </field>
 
-                <field id="allow_layered_show_hide" translate="label comment" type="select" sortOrder="45" showInDefault="1"
+                <field id="allow_layered_show_hide" translate="label comment" type="select" sortOrder="55" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Allow customer to show/hide Layered Navigation</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -138,7 +198,7 @@
                 </field>
 
 
-                <field id="layered_show_hide_state" translate="label" type="select" sortOrder="50" showInDefault="1"
+                <field id="layered_show_hide_state" translate="label" type="select" sortOrder="60" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Filters default state</label>
                     <source_model>WeltPixel\LayeredNavigation\Model\Config\Source\FilterShowHideState</source_model>
@@ -148,7 +208,7 @@
                     </depends>
                 </field>
 
-                <field id="compare_block" translate="label comment" type="select" sortOrder="55" showInDefault="1"
+                <field id="compare_block" translate="label comment" type="select" sortOrder="65" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Show Compare Products block</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -158,7 +218,7 @@
                     </depends>
                 </field>
 
-                <field id="wishlist_block" translate="label comment" type="select" sortOrder="60" showInDefault="1"
+                <field id="wishlist_block" translate="label comment" type="select" sortOrder="70" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Show Wish List block</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -168,7 +228,7 @@
                     </depends>
                 </field>
 
-                <field id="recentlyordered_block" translate="label comment" type="select" sortOrder="65" showInDefault="1"
+                <field id="recentlyordered_block" translate="label comment" type="select" sortOrder="75" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Show Recently Ordered block</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -178,7 +238,7 @@
                     </depends>
                 </field>
 
-                <field id="category_block" translate="label" type="select" sortOrder="70" showInDefault="1"
+                <field id="category_block" translate="label" type="select" sortOrder="80" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Show Category Filter</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -188,7 +248,7 @@
                     </depends>
                 </field>
 
-                <field id="filter_button" translate="label" type="select" sortOrder="75" showInDefault="1"
+                <field id="filter_button" translate="label" type="select" sortOrder="85" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Filter Button</label>
                     <source_model>WeltPixel\LayeredNavigation\Model\Config\Source\FilterButton</source_model>
@@ -216,7 +276,7 @@
                     ]]>
                 </comment>
 
-                <field id="price_filter" translate="label" type="select" sortOrder="80" showInDefault="1"
+                <field id="price_filter" translate="label" type="select" sortOrder="90" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Price Filter</label>
                     <source_model>WeltPixel\LayeredNavigation\Model\Config\Source\PriceFilter</source_model>
@@ -227,7 +287,7 @@
                     </comment>
                 </field>
 
-                <field id="price_filter_input" translate="label" type="select" sortOrder="80" showInDefault="1"
+                <field id="price_filter_input" translate="label" type="select" sortOrder="95" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Show Price Slider With Input</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -237,7 +297,7 @@
                     </depends>
                 </field>
 
-                <field id="auto_close_sidebar" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="85" translate="label"
+                <field id="auto_close_sidebar" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label"
                        type="select">
                     <label>AutoClose Sidebar</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -247,7 +307,7 @@
                     </depends>
                 </field>
 
-                <field id="rating_filter" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label"
+                <field id="rating_filter" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="105" translate="label"
                        type="select">
                     <label>Enable Rating Filter</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -257,7 +317,7 @@
                     </depends>
                 </field>
 
-                <field id="rating_filter_name" translate="label" type="text" sortOrder="100" showInDefault="1"
+                <field id="rating_filter_name" translate="label" type="text" sortOrder="110" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Rating Filter Name</label>
                     <comment>Rating Filter Name</comment>
@@ -266,7 +326,7 @@
                     </depends>
                 </field>
 
-                <field id="rating_filter_display" translate="label" type="select" sortOrder="110" showInDefault="1"
+                <field id="rating_filter_display" translate="label" type="select" sortOrder="115" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <source_model>WeltPixel\LayeredNavigation\Model\Config\Source\RatingFilterDisplay</source_model>
                     <label>Rating Filter Display Options</label>
@@ -285,7 +345,7 @@
                     </depends>
                 </field>
 
-                <field id="rating_filter_multiselect" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label"
+                <field id="rating_filter_multiselect" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="125" translate="label"
                        type="select">
                     <label>Rating Filter Multiselect</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -294,7 +354,7 @@
                         <field id="rating_filter">1</field>
                     </depends>
                 </field>
-                <field id="rating_filter_counter" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label"
+                <field id="rating_filter_counter" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label"
                        type="select">
                     <label>Show Rating Filter Counter</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

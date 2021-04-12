@@ -75,17 +75,20 @@ $checkouts = ['checkout_index_index','multishipping_checkout_addresses', 'multis
                 </a>
             </div>
         <?php else :?>
-            <a  class="logo unset-logo"
-                href="<?= $block->escapeUrl($block->getUrl('')) ?>"
-                title="<?= $block->escapeHtmlAttr($storeName) ?>"
-                aria-label="store logo" >
-                <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
-                     title="<?= $block->escapeHtmlAttr($block->getMobileLogoAlt()) ?>"
-                     alt="<?= $block->escapeHtmlAttr($block->getMobileLogoAlt()) ?>"
-                    <?= $block->getMobileLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getMobileLogoWidth()) . '"' : '' ?>
-                    <?= $block->getMobileLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getMobileLogoHeight()) . '"' : '' ?>
-                />
-            </a>
+            <div class="desktop-logo desktop-logo-all unset-logo">
+                <a
+                    class="logo "
+                    href="<?= $block->escapeUrl($block->getUrl('')) ?>"
+                    title="<?= $block->escapeHtmlAttr($storeName) ?>"
+                    aria-label="store logo">
+                    <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
+                         title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+                         alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
+                        <?= $block->getLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getLogoWidth()) . '"' : '' ?>
+                        <?= $block->getLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getLogoHeight()) . '"' : '' ?>
+                    />
+                </a>
+            </div>
         <?php endif; ?>
     <?php endif; ?>
 <?php endif; ?>

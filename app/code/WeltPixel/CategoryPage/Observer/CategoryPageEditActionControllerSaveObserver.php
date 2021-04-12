@@ -299,6 +299,8 @@ class CategoryPageEditActionControllerSaveObserver implements ObserverInterface
     .catalog-product-view .grid.products-grid .owl-item .product-item { width: 100% !important; }
     .page-products .grid.products-grid .product-items,
     .catalog-product-view .grid.products-grid .product-items { margin: 0 !important; }
+    .page-products.page-layout-1column .grid.products-grid .product-item,
+    .page-products.page-layout-2columns .grid.products-grid .product-item,
     .page-products .grid.products-grid .product-item {
         width: $width%;
         margin-left: calc(~\"(100% - $productsPerLine * $width%) / $productsPerLine\");

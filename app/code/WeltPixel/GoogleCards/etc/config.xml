@@ -46,6 +46,7 @@
                 <site_name></site_name>
                 <app_id></app_id>
                 <retailer_id>sku</retailer_id>
+                <cms_page_open_graph_enable>0</cms_page_open_graph_enable>
             </facebook_opengraph>
             <pinterest_rich_pins>
                 <enable>1</enable>

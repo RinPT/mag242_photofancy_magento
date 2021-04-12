@@ -74,7 +74,9 @@ Child,Child
 Parent,Parent
 Dimension,Dimension
 Metric,Metric
-"Sign in to Google","Sign in to Google"
+"Sign in to Google (Deprecated)","Sign in to Google (Deprecated)"
+Note,Note
+"You can use the Json Export Option from below. More details: <a target=""_blank"" href=""%1"">here</a>","You can use the Json Export Option from below. More details: <a target=""_blank"" href=""%1"">here</a>"
 "<p>Please click <b>Save Config</b> button to save the entered API data, otherwise they will be lost</p>","<p>Please click <b>Save Config</b> button to save the entered API data, otherwise they will be lost</p>"
 "and <b>specify the GTM API credentials in the previous section!</b>","and <b>specify the GTM API credentials in the previous section!</b>"
 "<p><b>Create or Update Google AdWords conversion tracking automatically in Google Tag Manager.</b></p>","<p><b>Create or Update Google AdWords conversion tracking automatically in Google Tag Manager.</b></p>"
@@ -142,6 +144,7 @@ Metric,Metric
 "Tax will be deduced from Grand Total","Tax will be deduced from Grand Total"
 "Exclude Shipping From Transaction","Exclude Shipping From Transaction"
 "Shipping charges will deduced from Grand Total","Shipping charges will deduced from Grand Total"
+"Exclude Shipping Including Tax","Exclude Shipping Including Tax"
 "Exclude Orders with 0 value","Exclude Orders with 0 value"
 "Orders with value 0.00 can be excluded from purchase transactions if you set this option to Yes","Orders with value 0.00 can be excluded from purchase transactions if you set this option to Yes"
 "Success Page Paths","Success Page Paths"

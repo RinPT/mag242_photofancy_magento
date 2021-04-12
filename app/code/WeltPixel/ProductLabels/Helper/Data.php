@@ -3,6 +3,7 @@
 namespace WeltPixel\ProductLabels\Helper;
 
 use Magento\Framework\App\Helper\Context;
+use Magento\Store\Model\ScopeInterface;
 use WeltPixel\ProductLabels\Model\ProductLabelBuilder;
 
 /**
@@ -25,8 +26,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function __construct(
         Context $context,
         ProductLabelBuilder $productLabelBuilder
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->productLabelBuilder = $productLabelBuilder;
     }
@@ -47,5 +47,37 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getLabelsOnProductPage($productId)
     {
         return $this->productLabelBuilder->getLabelsOnProductPage($productId);
+    }
+
+    /**
+     * @return bool
+     */
+    public function enableForRelatedProducts()
+    {
+        return (bool)$this->scopeConfig->getValue('weltpixel_productlabels/general/enable_related_products', ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function enableForUpsellProducts()
+    {
+        return (bool)$this->scopeConfig->getValue('weltpixel_productlabels/general/enable_upsell_products', ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function enableForCrossellProducts()
+    {
+        return (bool)$this->scopeConfig->getValue('weltpixel_productlabels/general/enable_crossell_products', ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function enableForProductWidgets()
+    {
+        return (bool)$this->scopeConfig->getValue('weltpixel_productlabels/general/enable_product_widgets', ScopeInterface::SCOPE_STORE);
     }
 }

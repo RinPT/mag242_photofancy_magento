@@ -6,6 +6,7 @@
         <move element="top.links" destination="customer"/>
         <move element="authorization-link" destination="top.links" after="-"/>
         <move element="minicart" destination="header.right" after="-"/>
+        <move element="top.search" destination="header.right" after="-"/>
 
         <referenceBlock name="advanced-search-link" remove="true"/>
 

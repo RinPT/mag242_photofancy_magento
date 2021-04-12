@@ -24,6 +24,7 @@ define(['jquery'], function ($) {
                         var clickedEl = false,
                             clickedCount = 0,
                             sizeChanged = false;
+                        $('.nav-sections').addClass('nav-mobile');
                         /** detect orientation change (same as resize) */
                         window.addEventListener('resize', function() {
                             sizeChanged = true;
@@ -88,6 +89,8 @@ define(['jquery'], function ($) {
                         navigationJs.createFocusOverlay(navigation);
                     },1000)
                 }
+
+                navigationJs.adjustHoverOnLastElement();
             },
             isCheckoutPage: function() {
                 return $('body').hasClass('checkout-index-index');
@@ -277,7 +280,18 @@ define(['jquery'], function ($) {
                     return 'v4';
                 } else
                     return 'clean';
-            }
+            },
+            adjustHoverOnLastElement: function () {
+                $('.megamenu.level0.last').hover(
+                    function onMouseEnter() {
+                        $('.megamenu.level0.last ul').css('display', '');
+                    },
+                    function onMouseLeave() {
+                        $('.megamenu.level0.last a:first-child').removeClass('ui-state-focus');
+                        $('.megamenu.level0.last ul').css('display', 'none');
+                    }
+                )
+            },
         };
 
     return navigationJs;

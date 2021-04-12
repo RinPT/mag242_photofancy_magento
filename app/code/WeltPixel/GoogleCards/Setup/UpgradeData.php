@@ -64,5 +64,27 @@ class UpgradeData implements UpgradeDataInterface
                 );
             }
         }
+
+        if (version_compare($context->getVersion(), "1.0.6", "<")) {
+            $connection = $setup->getConnection();
+            $connection->addColumn(
+                $setup->getTable('cms_page'),
+                'og_meta_image',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => '255',
+                    'comment' => 'SEO Meta Image',
+                ]
+            );
+            $connection->addColumn(
+                $setup->getTable('cms_page'),
+                'og_meta_image_alt',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'length' => '255',
+                    'comment' => 'Open Graph Image Alt',
+                ]
+            );
+        }
     }
 }

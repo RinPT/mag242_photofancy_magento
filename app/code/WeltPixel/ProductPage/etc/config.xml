@@ -24,6 +24,7 @@
                 <remove_wishlist>1</remove_wishlist>
                 <tabs_layout>tab</tabs_layout>
                 <accordion_version>0</accordion_version>
+                <tabs_bar_background_color>#FFFFFF</tabs_bar_background_color>
             </general>
             <gallery>
                 <arrows>true</arrows>

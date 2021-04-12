@@ -18,4 +18,7 @@
     <type name="WeltPixel\ProductLabels\Model\ProductLabels">
         <plugin name="reindex_ruleid_products" type="WeltPixel\ProductLabels\Plugin\Indexer\ReindexRuleIdProducts" sortOrder="1" />
     </type>
+    <type name="Magento\CatalogWidget\Block\Product\ProductsList">
+        <plugin name="weltpixel_productlabels_widgetlist" type="WeltPixel\ProductLabels\Plugin\Widget\ProductList" sortOrder="1" />
+    </type>
 </config>

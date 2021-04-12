@@ -26,7 +26,6 @@
 	width: 100%;
 	position: relative;
 	z-index: 0;
-    touch-action: none;
 }
 .owl-carousel .animated {
 	animation-duration: 1000ms;
@@ -43,6 +42,9 @@
 }
 .owl-carousel .owl-stage {
 	position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
 }
 .owl-carousel .owl-stage:after {
 	content: ".";

@@ -9,10 +9,5 @@
                 template="WeltPixel_AdvanceCategorySorting::init_toolbarjs.phtml"
             />
         </referenceContainer>
-        <referenceBlock name="product_list_toolbar">
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">WeltPixel_AdvanceCategorySorting::product/list/toolbar.phtml</argument>
-            </action>
-        </referenceBlock>
     </body>
 </page>

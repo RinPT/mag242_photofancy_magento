@@ -1,6 +1,8 @@
 <?php
 namespace WeltPixel\OwlCarouselSlider\Block\Slider;
 
+use Magento\Framework\App\Filesystem\DirectoryList;
+
 class Custom extends \Magento\Framework\View\Element\Template implements \Magento\Widget\Block\BlockInterface
 {
     protected $_sliderId;
@@ -9,6 +11,10 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
     protected $_mobileHelperData;
     protected $_filterProvider;
 
+    /**
+     * @var \Magento\Framework\Filesystem
+     */
+    protected $_filesystem;
 
     /**
      * Custom constructor.
@@ -16,6 +22,7 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
      * @param \WeltPixel\OwlCarouselSlider\Helper\Custom $helperCustom
      * @param \Magento\Cms\Model\Template\FilterProvider $filterProvider
      * @param \WeltPixel\MobileDetect\Helper\Data $mobileHelperData
+     * @param \Magento\Framework\Filesystem $fileSystem
      * @param array $data
      */
     public function __construct(
@@ -23,12 +30,13 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
         \WeltPixel\OwlCarouselSlider\Helper\Custom $helperCustom,
         \Magento\Cms\Model\Template\FilterProvider $filterProvider,
         \WeltPixel\MobileDetect\Helper\Data $mobileHelperData,
+        \Magento\Framework\Filesystem $fileSystem,
         array $data = []
-    )
-    {
+    ) {
         $this->_helperCustom = $helperCustom;
         $this->_mobileHelperData = $mobileHelperData;
         $this->_filterProvider = $filterProvider;
+        $this->_filesystem = $fileSystem;
         $this->setTemplate('sliders/custom.phtml');
         parent::__construct($context, $data);
     }
@@ -37,7 +45,8 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
      * @param $video
      * @return mixed
      */
-    public function getVideoHtml($video){
+    public function getVideoHtml($video)
+    {
         $storeId = $this->_storeManager->getStore()->getId();
 
         return $this->_filterProvider->getBlockFilter()->setStoreId($storeId)->filter($video);
@@ -52,7 +61,6 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
         }
 
         if (is_null($this->_sliderConfiguration)) {
-
             $this->_sliderConfiguration = $this->_helperCustom->getSliderConfigOptions($this->_sliderId);
         }
 
@@ -76,6 +84,21 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
     }
 
     /**
+     * @param $imageName
+     * @return array
+     */
+    public function getImageDetails($imageName)
+    {
+        $mediapath = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
+        list($width, $height) = getimagesize($mediapath . $imageName);
+
+        return [
+            'width' => $width,
+            'height' => $height,
+        ];
+    }
+
+    /**
      * @return mixed
      */
     public function isGatEnabled()
@@ -86,15 +109,16 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
     /**
      * @return mixed
      */
-    public function getMobileBreakPoint() {
+    public function getMobileBreakPoint()
+    {
         return $this->_helperCustom->getMobileBreakpoint();
     }
 
     /**
      * @return bool
      */
-    public function isMobile(){
+    public function isMobile()
+    {
         return $this->_mobileHelperData->isMobile();
     }
-
 }

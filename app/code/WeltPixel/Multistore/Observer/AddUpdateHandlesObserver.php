@@ -49,7 +49,7 @@ class AddUpdateHandlesObserver implements ObserverInterface
         }
         if ($isEnabled && $showInOneRowMobile) {
             $layout->getUpdate()->addHandle('weltpixel_multistore_onerow_mobile');
-        } else {
+        } else if ($isEnabled && !$showInOneRowMobile) {
             $layout->getUpdate()->addHandle('weltpixel_multistore_dropdown_mobile');
         }
 

@@ -28,6 +28,7 @@
                 <rating_filter_position>99</rating_filter_position>
                 <rating_filter_multiselect>0</rating_filter_multiselect>
                 <rating_filter_counter>0</rating_filter_counter>
+                <sb_selected_filters_options>1</sb_selected_filters_options>
             </sidebar>
             <attribute_display>
                 <filter>0</filter>

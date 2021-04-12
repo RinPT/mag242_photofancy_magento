@@ -496,5 +496,11 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $this->scopeConfig->getValue('weltpixel_custom_header/global_promo/global_promo_message_display_options', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
     }
 
-
+    /**
+     * @param int $storeId
+     * @return mixed
+     */
+    public function getSearchIconLineHeight($storeId = null) {
+        return $this->scopeConfig->getValue('weltpixel_custom_header/search_options/search_icon_line_height', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
+    }
 }

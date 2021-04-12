@@ -260,6 +260,7 @@ class CustomHeaderEditActionControllerSaveObserver implements ObserverInterface
 
         $serachOptionsWidth = $this->_helper->getSerachOptionsWidth($storeId);
         $serachOptionsHeight = $this->_helper->getSerachOptionsHeight($storeId);
+        $searchOptionsIconLineHeight = $this->_helper->getSearchIconLineHeight($storeId);
         $serachOptionsBorderWidth = $this->_helper->getSerachOptionsBorderWidth($storeId);
         $serachOptionsBorderStyle = $this->_helper->getSerachOptionsBorderStyle($storeId);
         $serachOptionsBorderColor = $this->_helper->getSerachOptionsBorderColor($storeId);
@@ -313,6 +314,7 @@ class CustomHeaderEditActionControllerSaveObserver implements ObserverInterface
 
         $serachOptionsWidth = strlen(trim($serachOptionsWidth)) ? 'width: ' . $serachOptionsWidth . ';' : '';
         $serachOptionsHeight = strlen(trim($serachOptionsHeight)) ? 'height: ' . $serachOptionsHeight . ';' : '';
+        $searchOptionsIconLineHeight = strlen(trim($searchOptionsIconLineHeight)) ? 'line-height: ' . $searchOptionsIconLineHeight . ';' : '';
 
         if($inputBorders == 0){
             $inputBorders = strlen(trim($inputBorders)) ? 'border:' . $borderWidth . 'px solid ' . $mainSearchElementsColor . '!important;'  : '';
@@ -381,7 +383,7 @@ class CustomHeaderEditActionControllerSaveObserver implements ObserverInterface
         $stickyNavigationBorderColor = $stickyNavigationBorderColor && strlen(trim($stickyNavigationBorderColor)) ? 'border-color:' . $stickyNavigationBorderColor . ' !important;' : '';
         $stickyNavigationBorderHoverColor = $stickyNavigationBorderHoverColor && strlen(trim($stickyNavigationBorderHoverColor)) ? 'border-color:' . $stickyNavigationBorderHoverColor . ' !important;' : '';
         $stickySearchBorderColor = $stickySearchBorderColor && strlen(trim($stickySearchBorderColor)) ? 'border-color:' . $stickySearchBorderColor . ' !important;' : '';
-        $stickySearchBackgroundColor = $stickySearchBackgroundColor && strlen(trim($stickySearchBackgroundColor)) ? 'background-color:' . $stickySearchBackgroundColor . ' !important;' : 'background-color: transparent !important;';
+        $stickySearchBackgroundColor = $stickySearchBackgroundColor && strlen(trim($stickySearchBackgroundColor)) ? 'background-color:' . $stickySearchBackgroundColor . ' !important;' : 'background-color: transparent';
 
         //        Generate Less
         $content .= "
@@ -585,6 +587,13 @@ class CustomHeaderEditActionControllerSaveObserver implements ObserverInterface
                      $serachOptionsBorderColor
                 }
             }
+            .actions {
+                button.action.search {
+                    &:before {
+                        $searchOptionsIconLineHeight
+                    }
+                }
+            }
         }
         .modal{
                 $backgroundColorSearchv2
@@ -669,7 +678,8 @@ class CustomHeaderEditActionControllerSaveObserver implements ObserverInterface
     .header.links > li.authorization-link a:before,
     .minicart-wrapper .action.showcart:before,
     .minicart-wrapper .action.showcart.active:before,
-    .block-search .action.search:before {
+    .block-search .actions .action.search:before,
+    .block-search .field.search .label:before {
         $headerIconSize
     }
     .block-search {
@@ -737,9 +747,13 @@ body:not(.mobile-nav){
             }
             li > a:hover {
                 $bottomHeaderLinkColorHover
+                $bottomHeaderLinkColorShadow
             }
         }
-        ul li.level0:hover > a { $bottomHeaderLinkColorHover }
+        ul li.level0:hover > a {
+            $bottomHeaderLinkColorHover
+            $bottomHeaderLinkColorShadow
+        }
         @media (max-width: $bkColorMobile) {
 	        background-color: inherit !important;
 	    }
@@ -1301,42 +1315,6 @@ body:not(.mobile-nav){
                                 img {
                                     $stickyLogoImgSizeCss
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        ";
-
-        $logoMargin = (int) ($stickyLogoHeight / 2) * -1;
-        $logoMarginCss = "margin-top: ${logoMargin}px;";
-
-        $stickyNavOffsetLeft = $stickyLogoWidth > 200 ? 220 : $stickyLogoWidth + 20;
-        $v3stickyNavOffsetLeft = $stickyLogoWidth > 200 ? 230 : $stickyLogoWidth + 30;
-
-        if ($isCustomLogoSizeOnStickyHeaderEnabled && strlen($stickyHeaderLogoWidth)) {
-            $stickyLogoWidthLength = (int)$stickyHeaderLogoWidth;
-            $stickyNavOffsetLeft = $stickyLogoWidthLength + 20;
-            $v3stickyNavOffsetLeft = $stickyLogoWidthLength + 30;
-        }
-
-        $stickyNavOffsetLeftCss = "left: ${stickyNavOffsetLeft}px !important;";
-        $v3stickyNavOffsetLeftCss = "margin-left: ${v3stickyNavOffsetLeft}px !important;";
-
-
-        $content .= "
-            :root .theme-pearl {
-                .page-wrapper {
-                    .page-header.sticky-header:not(.page-header-v4) {
-                        .logo {
-                            $logoMarginCss
-                        }
-                        .sections.nav-sections {
-                            $stickyNavOffsetLeftCss
-                        }
-                        &.page-header-v3 {
-                            .sections.nav-sections {
-                                $v3stickyNavOffsetLeftCss
                             }
                         }
                     }

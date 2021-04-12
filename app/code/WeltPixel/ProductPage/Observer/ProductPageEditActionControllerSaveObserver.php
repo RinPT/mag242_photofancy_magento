@@ -186,6 +186,10 @@ class ProductPageEditActionControllerSaveObserver implements ObserverInterface
             $galleryThumbsNavDir = $this->_helper->getGalleryNavDir($store->getData('store_id'));
             $qtySelectorBorderRadius = $this->_helper->getQtySelectorBorderRadius($store->getData('store_id'));
             $stickyAddToCartMaxWidth = $this->_helper->getTopHeaderWidthForSticky($store->getData('store_id'));
+            $stickyDescriptionTabsMaxWidth = $this->_helper->getProductPageWidth($store->getData('store_id'));
+            $stickyDescriptionTabsPadding = $this->_helper->getProductPagePadding($store->getData('store_id'));
+            $viewMoreLessHeight = $this->_helper->getViewMoreLessHeight($store->getData('store_id'));
+
             $generatedCssDirectoryPath = DIRECTORY_SEPARATOR . 'frontend' .
                 DIRECTORY_SEPARATOR . 'web' .
                 DIRECTORY_SEPARATOR . 'css' .
@@ -206,6 +210,8 @@ class ProductPageEditActionControllerSaveObserver implements ObserverInterface
             }
             $content .= $this->_generateBorderRadiusQtySelector($qtySelectorBorderRadius);
             $content .= $this->_generateStickyAddToCartMaxWidth($stickyAddToCartMaxWidth);
+            $content .= $this->_generateStickyDescriptionTabs($stickyDescriptionTabsMaxWidth, $stickyDescriptionTabsPadding);
+            $content .= $this->_generateViewMoreLess($viewMoreLessHeight);
             $content .= $this->_generateCssOptions($cssOptions, $store->getData('store_id'));
 
             /** @var \Magento\Framework\Filesystem\Directory\WriteInterface|\Magento\Framework\Filesystem\Directory\Write $writer */
@@ -861,6 +867,62 @@ class ProductPageEditActionControllerSaveObserver implements ObserverInterface
         ";
         return $content;
     }
+
+    /**
+     * @param $stickyDescriptionTabsMaxWidth
+     * @return string
+     */
+    private function _generateStickyDescriptionTabs($stickyDescriptionTabsMaxWidth, $stickyDescriptionTabsPadding)
+    {
+        $stickyDescriptionTabsMaxWidth = (!empty($stickyDescriptionTabsMaxWidth) ? 'max-width:' . $stickyDescriptionTabsMaxWidth . '!important;' : 'max-width: 1400px !important;');
+        $stickyDescriptionTabsPadding = (!empty($stickyDescriptionTabsPadding) ? 'padding:' . $stickyDescriptionTabsPadding  : 'padding: 0 15px;');
+        $content = "
+            .theme-pearl.catalog-product-view {
+                .no-border {
+                    .product.data.items  {
+                        .nav-wrapper {
+                            .tabs-title-wrapper {
+                                $stickyDescriptionTabsMaxWidth
+                            }
+                        }
+                        .nav-wrapper-sticky {
+                            .tabs-title-wrapper {
+                                $stickyDescriptionTabsPadding
+                            }
+
+                        }
+                    }
+                }
+            }
+        ";
+        return $content;
+    }
+
+    /**
+     * @param $viewMoreLessHeight
+     * @return string
+     */
+    private function _generateViewMoreLess($viewMoreLessHeight)
+    {
+        $viewMoreLessHeight = (!empty($viewMoreLessHeight) ? 'max-height:' . $viewMoreLessHeight : 'max-height: 100%');
+        $content = "
+            .theme-pearl.catalog-product-view {
+                .page-main {
+                    .columns {
+                        .product.info.detailed {
+                            .product.data.items {
+                                .item.content.view-more-less-wrapper {
+                                    $viewMoreLessHeight;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ";
+        return $content;
+    }
+
 
     private function _generateBackgroundArrows($backgroundArrows)
     {

@@ -4,8 +4,9 @@ $_helper = $this->helper('WeltPixel\ProductPage\Helper\Data');
 
 /** @var $block \WeltPixel\ProductPage\Block\StickyCart */
 $product = $block->getProduct();
+$tabsLayout = $_helper->getTabsLayout();
 $mobileBreakpoint = $_helper->getMobileThreshold($_helper->getStoreId());
-$isOnDesktopEnabled = $_helper->isStickyAddToCartDesktopEnabled();
+$isOnDesktopEnabled = ($tabsLayout === 'tab' && $_helper->getTabsVersion() === '2' ? "0" : $_helper->isStickyAddToCartDesktopEnabled());
 $isOnMobileEnabled = $_helper->isStickyAddToCartMobileEnabled();
 $customHeaderVersion = $_helper->getCurrentCustomHeaderVersion();
 $stickyHeaderScrollUp = $_helper->stickyHeaderWhenScrollUpIsEnabled();

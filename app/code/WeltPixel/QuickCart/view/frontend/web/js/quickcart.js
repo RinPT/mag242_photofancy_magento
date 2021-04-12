@@ -6,6 +6,7 @@ define(['jquery', 'domReady'], function ($) {
             initialize: function(mobileBreakpoint) {
                 var ua = window.navigator.userAgent;
                 var msie = ua.indexOf("MSIE ");
+                var that = this;
 
                 $('.quickcart-content-wrapper').on('click', '.qty-update', function () {
                     quickcart.updateQty($(this));
@@ -19,13 +20,16 @@ define(['jquery', 'domReady'], function ($) {
                 });
                 $('.quickcart-content-wrapper').on('click', '.action.close', function () {
                     $(".logo").removeAttr('style');
+                    that.removeTabIndexQtyButtons();
                 });
                 $('.showcart').on('click', function () {
                     $(".logo").attr('style', 'z-index: 0');
-                    if(quickcart.checkSafariBrowser()){
-                        $('.page-wrapper').css('overflow-x','visible');
+                    that.addTabIndexQtyButtons();
+
+                    if (quickcart.checkSafariBrowser()) {
+                        $('.page-wrapper').css('overflow-x', 'visible');
                     }
-                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)){
+                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
                         $('.block-quickcart').addClass('quickCartIE');
                     }
                 });
@@ -42,7 +46,6 @@ define(['jquery', 'domReady'], function ($) {
                 });
                 if (this.openMinicart()) {
                     var minicart = $('.minicart-wrapper');
-                    var that = this;
                     minicart.on('contentLoading', function () {
                         minicart.on('contentUpdated', function () {
                             if (that.shouldOpenMinicart(mobileBreakpoint)) {
@@ -56,6 +59,30 @@ define(['jquery', 'domReady'], function ($) {
                         });
                     });
                 }
+            },
+            addTabIndexQtyButtons : function () {
+                let plusQty = $('.item-plus'),
+                    minusQty = $('.item-minus'),
+                    miniCartWrapper = $('.quickcart-content-wrapper');
+
+                miniCartWrapper.addClass('isOpen');
+
+                if (miniCartWrapper.hasClass('isOpen')) {
+                    plusQty.attr('tabindex', '0');
+                    minusQty.attr('tabindex', '0');
+                }
+            },
+            removeTabIndexQtyButtons : function () {
+                let plusQty = $('.item-plus'),
+                    minusQty = $('.item-minus'),
+                    miniCartWrapper = $('.quickcart-content-wrapper');
+
+                if (miniCartWrapper.hasClass('isOpen')) {
+                    plusQty.attr('tabindex', '-1');
+                    minusQty.attr('tabindex', '-1');
+                }
+
+                miniCartWrapper.removeClass('isOpen');
             },
             openMinicart: function() {
                 if (window.openMinicart == 1) {

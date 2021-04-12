@@ -9,4 +9,10 @@
     <type name="Magento\Catalog\Model\Category">
         <plugin name="apply_quickviewmessages_after_products_assign" type="WeltPixel\Quickview\Plugin\Indexer\Category"/>
     </type>
+    <type name="Magento\CatalogInventory\Api\StockItemRepositoryInterface">
+        <plugin name="apply_quickviewmessages_rules_after_product_save" type="WeltPixel\Quickview\Plugin\Indexer\StockItem\Save\ApplyRules"/>
+    </type>
+    <type name="Magento\CatalogRule\Model\Rule\Condition\Product">
+        <plugin name="apply_quickviewmessages_quantity_combination_assign" type="WeltPixel\Quickview\Plugin\Indexer\ConditionProduct"/>
+    </type>
 </config>

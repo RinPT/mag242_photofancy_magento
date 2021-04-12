@@ -440,6 +440,14 @@
                         <field id="enable">1</field>
                     </depends>
                 </field>
+                <field id="cms_page_open_graph_enable" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Facebook Graph For CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
             </group>
             <group id="pinterest_rich_pins" translate="label" type="text" sortOrder="90" showInDefault="1"
                    showInWebsite="1" showInStore="1">

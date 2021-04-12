@@ -75,6 +75,10 @@ class Toolbar
         if ($this->_helper->getConfigValue('general', 'enable')) {
             $collection = $subject->getCollection();
 
+            if (isset($collection) && !($collection instanceof \Magento\Catalog\Model\ResourceModel\Product\Collection)) {
+                return $subject;
+            }
+
             if ($subject->getCurrentOrder()) {
                 if ($this->_getRealCurrentOrder($subject) == 'position') {
                     if (!$this->filtered) {
@@ -179,6 +183,11 @@ class Toolbar
         $field
     )
     {
+        $collection = $subject->getCollection();
+        if (isset($collection) && !($collection instanceof \Magento\Catalog\Model\ResourceModel\Product\Collection)) {
+            return $proceed($field);
+        }
+
         if ($this->_getRealCurrentOrder($subject) == 'relevance') {
             $field = 'relevance';
         } else {
@@ -278,6 +287,11 @@ class Toolbar
      */
     public function afterGetCurrentOrder(\Magento\Catalog\Block\Product\ProductList\Toolbar $subject, $result)
     {
+        $collection = $subject->getCollection();
+        if (isset($collection) && !($collection instanceof \Magento\Catalog\Model\ResourceModel\Product\Collection)) {
+            return $result;
+        }
+
         $orders = $subject->getAvailableOrders();
 
         // compare the value set in param with order returned in $result
@@ -292,5 +306,27 @@ class Toolbar
 
         // if nothing changed...
         return $result;
+    }
+
+    /**
+     * @param \Magento\Catalog\Block\Product\ProductList\Toolbar $subject
+     * @param string $template
+     * @return string
+     */
+    public function beforeGetTemplateFile(
+        \Magento\Catalog\Block\Product\ProductList\Toolbar $subject,
+        string $template = null
+    ) {
+        $collection = $subject->getCollection();
+        if (isset($collection) && !($collection instanceof \Magento\Catalog\Model\ResourceModel\Product\Collection)) {
+            return [$template];
+        }
+        if ($this->_helper->getConfigValue('general', 'enable')) {
+            if ($template == 'Magento_Catalog::product/list/toolbar/sorter.phtml') {
+                $template = 'WeltPixel_AdvanceCategorySorting::product/list/toolbar/sorter.phtml';
+            }
+        }
+        return [$template];
+
     }
 }

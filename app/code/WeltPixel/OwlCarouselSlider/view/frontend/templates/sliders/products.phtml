@@ -21,6 +21,13 @@ if ($sliderNavDesignVersion == \WeltPixel\OwlCarouselSlider\Model\Config\Source\
     $sliderPrevLabel = array_key_exists('nav_prev_label', $sliderData) ? $sliderData['nav_prev_label'] : 'prev';
     $sliderNextLabel = array_key_exists('nav_next_label', $sliderData) ? $sliderData['nav_next_label'] : 'next';
 }
+
+$productLabelsEnabled = false;
+try {
+    $productLabelsHelper = $this->helper('WeltPixel\ProductLabels\Helper\Data');
+    $productLabelsEnabled = $productLabelsHelper->enableForProductWidgets();
+} catch (\Exception $ex) {}
+
 ?>
 <?php if (!$enabled) {
     return;
@@ -73,7 +80,10 @@ if ($productsType != 'recently_viewed') {
 
                 <div class="item product product-item">
                     <div data-container="product-grid" class="product-item-info">
-                        <a tabindex="-1" class="product photo product-item-photo" href="<?php echo $productUrl; ?>">
+                        <a <?php if ($productLabelsEnabled) : ?>
+                            data-wpproductlabel="1" data-product-id="<?php echo $product->getId() ?>"
+                        <?php endif; ?>
+                            tabindex="-1" class="product photo product-item-photo" href="<?php echo $productUrl; ?>">
                             <span style="width:240px;" class="product-image-container">
                                 <span style="padding-bottom: 125%;" class="product-image-wrapper">
                                     <img width="240"

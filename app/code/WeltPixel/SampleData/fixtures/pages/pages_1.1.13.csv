@@ -123,7 +123,7 @@ title,page_layout,meta_keywords,meta_description,identifier,content_heading,cont
 <div class=""container-v11"">
         <div class=""row nomarginmob"">
         	<div class=""module-inner"">
-{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram"" instagram_client_id=""285acc9ecbb64e72b493c4a26ffcea31"" instagram_access_token=""10434539113.285acc9.82ca523e87854248818b5648d2533817""  title=""#YOUR PRODUCT ON INSTAGRAM"" description=""Users using your product. Sharing comments with the world."" images_in_new_tab=""0"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" sort_by=""none"" resolution=""standard_resolution"" feed_type=""user"" user_id=""10434539113"" type_name=""WeltPixel InstagramWidget""}}
+{{widget type=""WeltPixel\InstagramWidget\Block\Widget\Instagram""  instagram_api_type=""javascript_parser""  title=""#YOUR PRODUCT ON INSTAGRAM"" description=""Users using your product. Sharing comments with the world."" images_in_new_tab=""0"" images_per_row=""col-6"" images_have_padding=""0"" optimize_image_layout=""0"" resolution_jsparser=""original"" feed_type_jsparser=""user"" user_name=""weltpixel_themes""}}
 			</div>
          </div>
 </div>

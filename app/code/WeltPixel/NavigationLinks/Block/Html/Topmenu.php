@@ -511,7 +511,7 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
         }
 
         if (strlen($mmSubMenuPadding)) {
-            $this->inlineStyleOptions[] = 'body .nav-sections .navigation ul li.megamenu.level' . $childLevel
+            $this->inlineStyleOptions[] = '.nav-sections:not(.nav-mobile) .navigation ul li.megamenu.level' . $childLevel
                 . ' ul.level' . $childLevel . '.submenu' . '.'
                 . $megaMenuClass . ' li.mm-no-children '
                 . '{ padding:' . $mmSubMenuPadding . ' ;}';
@@ -532,7 +532,7 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
             }
 
             $mmSubMenuPadding = implode(' ', $mmSubMenuPaddingArray);
-            $this->inlineStyleOptions[] = 'body:not(.mobile-nav) .nav-sections .navigation ul li.level0 .parent > a.mm-category-title'
+            $this->inlineStyleOptions[] = '.nav-sections:not(.nav-mobile) .nav-sections .navigation ul li.level0 .parent > a.mm-category-title'
                 . '{ padding:' . $mmSubMenuPadding . ' ;}';
         }
 
@@ -552,18 +552,20 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
         }
 
         if (strlen($mmSubMenuFontSizeL0)) {
-            $this->inlineStyleOptions[] = '.navigation ul li.level0 > a span:first-child,'
-                . '.navigation ul li.level0 > a span:nth-child(2)'
+            $this->inlineStyleOptions[] = '.nav-sections:not(.nav-mobile) .navigation ul li.level0 > a span:first-child,'
+                . '.nav-sections:not(.nav-mobile) .navigation ul li.level0 > a span:nth-child(2)'
                 . '{ ' . $mmSubMenuFontSizeL0 . ';}';
         }
         if (strlen($mmSubMenuFontSizeL1)) {
-            $this->inlineStyleOptions[] = '.navigation ul li.level1 > a span:first-child,'
-                . '.navigation ul li.level1 > a span:nth-child(2)'
+            $this->inlineStyleOptions[] =  '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-fullwidth .submenu .columns-group li.level1 > a span,'
+                . '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-sectioned .submenu .columns-group li.level1 > a span,'
+                . '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-boxed .submenu .columns-group li.level1 > a span'
                 . '{ ' . $mmSubMenuFontSizeL1 . ';}';
         }
         if (strlen($mmSubMenuFontSizeL2)) {
-            $this->inlineStyleOptions[] = '.navigation ul li.level2 > a span:first-child,'
-                . '.navigation ul li.level2 > a span:nth-child(2)'
+            $this->inlineStyleOptions[] = '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-fullwidth .submenu .columns-group li.level2 > a span,'
+                . '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-sectioned .submenu .columns-group li.level2 > a span,'
+                . '.nav-sections:not(.nav-mobile) .navigation .megamenu.level-top-boxed .submenu .columns-group li.level2 > a span'
                 . '{ ' . $mmSubMenuFontSizeL2 . ';}';
         }
         if (strlen($mmItemsPaddingL0)) {

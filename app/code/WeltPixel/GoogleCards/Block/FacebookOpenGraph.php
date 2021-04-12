@@ -2,8 +2,40 @@
 
 namespace WeltPixel\GoogleCards\Block;
 
+use Magento\Review\Model\ResourceModel\Review\CollectionFactory;
+use WeltPixel\GoogleCards\Model\Config\FileUploader\FileProcessor as ImageFileProcessor;
+
 class FacebookOpenGraph extends GoogleCards
 {
+    /**
+     * @var ImageFileProcessor
+     */
+    protected $imageFileProcessor;
+
+    /**
+     * GoogleCards constructor.
+     * @param ImageFileProcessor $imageFileProcessor
+     * @param \Magento\Catalog\Block\Product\Context $productContext
+     * @param \WeltPixel\GoogleCards\Helper\Data $helper
+     * @param \Magento\Review\Model\Review\SummaryFactory $reviewSummaryFactory
+     * @param CollectionFactory $_reviewsFactory
+     * @param \Magento\Theme\Block\Html\Header\Logo $logo
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param array $data
+     */
+    public function __construct(
+        ImageFileProcessor $imageFileProcessor,
+        \Magento\Catalog\Block\Product\Context $productContext,
+        \WeltPixel\GoogleCards\Helper\Data $helper,
+        \Magento\Review\Model\Review\SummaryFactory $reviewSummaryFactory,
+        \Magento\Review\Model\ResourceModel\Review\CollectionFactory $_reviewsFactory,
+        \Magento\Theme\Block\Html\Header\Logo $logo,
+        \Magento\Framework\View\Element\Template\Context $context,
+        array $data = []
+    ) {
+        $this->imageFileProcessor = $imageFileProcessor;
+        parent::__construct($productContext, $helper, $reviewSummaryFactory, $_reviewsFactory, $logo, $context, $data);
+    }
 
     /**
      * @param \Magento\Catalog\Model\Product $product
@@ -55,15 +87,30 @@ class FacebookOpenGraph extends GoogleCards
         $retailerItemId = '';
 
         switch ($idOption) {
-            case 'sku' :
+            case 'sku':
                 $retailerItemId = $product->getData('sku');
                 break;
-            case 'id' :
+            case 'id':
             default:
             $retailerItemId = $product->getId();
                 break;
         }
 
         return $retailerItemId;
+    }
+
+    /**
+     * @param \Magento\Cms\Model\Page $page
+     * @return string
+     */
+    public function getCmsPageImage($page)
+    {
+        $ogImageSrc = '';
+        $ogImage = $page->getData('og_meta_image');
+        if (strlen($ogImage)) {
+            $ogImageSrc = $this->imageFileProcessor->getFinalMediaUrl($ogImage);
+        }
+
+        return $ogImageSrc;
     }
 }

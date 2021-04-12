@@ -716,7 +716,84 @@
                 margin-bottom: 0;
             }
         }
+        #layered-filter-block.horizontal-v3  {
+            display: flex;
+            align-items: center;
 
+            .block-content.filter-content {
+                .filter-options {
+                    .filter-options-item {
+                        margin-bottom: 5px;
+                        margin-right: 10px;
+                        .filter-options-title {
+                            transition: .3s;
+                            transition-property: all;
+                            transition-duration: 0.3s;
+                            transition-timing-function: ease;
+                            transition-delay: 0s;
+                            padding: 10px 15px;
+                            &:after {
+                                transition: transform .45s cubic-bezier(.165,.84,.44,1),-webkit-transform .45s cubic-bezier(.165,.84,.44,1);
+                                position: relative;
+                                margin-left: 10px;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                        .filter-options-content {
+                            width: auto;
+                            opacity: 0;
+                            transition: .3s cubic-bezier(.215,.61,.355,1);
+                            margin-top: 5px;
+                            .filter-options-content-title {
+                                display: flex;
+                                align-items: center;
+                                padding: 10px 15px;
+                                font-size: 16px;
+                                font-weight: 700;
+                                border-bottom: 1px solid #cccccc;
+                                white-space: nowrap;
+                            }
+                            .items {
+                                overflow-y: scroll;
+                                max-height: 200px;
+                                margin: 10px 10px 15px 10px;
+                                li.item {
+                                    margin: 0;
+                                    padding: 5px 8px 5px 0;
+                                    width: 100%;
+                                    a {
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                            .items::-webkit-scrollbar {
+                                display: none;
+                            }
+                        }
+
+                        &:after, &:before {
+                            display: none;
+                        }
+
+                    }
+                    .filter-options-item.active {
+                        .filter-options-title {
+                            &:after {
+                                content: '\e622';
+                                transform: rotate(180deg);
+                            }
+                        }
+                        .filter-options-content {
+                            opacity: 100%;
+                            .items:hover::-webkit-scrollbar {
+                                    display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .filter-align-left {
             justify-content: left;
         }
@@ -1092,5 +1169,39 @@
     .wp-instant-search-inp {
         width: 90%
     }
+    body.page-layout-1column {
+        .page-wrapper {
+            #layered-filter-block.horizontal-v3 {
+                .block-content.filter-content {
+                    .filter-options {
+                        .filter-options-item,
+                        .filter-options-item.active {
+                            .filter-options-content {
+                                .filter-options-content-title {
+                                    display: none;
+                                }
+                            }
 
+                            .filter-options-title,
+                            .filter-options-title:hover {
+                                background-color: #FFFFFF !important;
+                                color: #000000;
+                                border-style: solid;
+                                border-radius: 0;
+                                border-width: 0 0 1px 0;
+                                border-color: #CCCCCC;
+                            }
+
+                            .filter-options-title:after,
+                            .filter-options-title:hover::after {
+                                border: none;
+                                background-color: #FFFFFF;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

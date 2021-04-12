@@ -69,6 +69,11 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
     private $categoryRepository;
 
     /**
+     * @var \Magento\Eav\Api\AttributeRepositoryInterface
+     */
+    protected $attributeRepository;
+
+    /**
      * Products constructor.
      * @param \Magento\Catalog\Block\Product\Context $context
      * @param \WeltPixel\OwlCarouselSlider\Helper\Products $helperProducts
@@ -83,6 +88,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      * @param Rule $rule
      * @param Conditions $conditionsHelper
      * @param CategoryRepositoryInterface $categoryRepository
+     * @param \Magento\Eav\Api\AttributeRepositoryInterface $attributeRepository
      * @param array $data
      */
     public function __construct(
@@ -99,6 +105,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
         Rule $rule,
         Conditions $conditionsHelper,
         CategoryRepositoryInterface $categoryRepository,
+        \Magento\Eav\Api\AttributeRepositoryInterface $attributeRepository,
         array $data = []
     ) {
         $this->_coreRegistry = $context->getRegistry();
@@ -114,6 +121,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
         $this->rule = $rule;
         $this->conditionsHelper = $conditionsHelper;
         $this->categoryRepository = $categoryRepository;
+        $this->attributeRepository = $attributeRepository;
 
         $this->setTemplate('sliders/products.phtml');
 
@@ -496,14 +504,27 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
             $this->_sortCollectionWithCustomOrder($_collection, $sortOrder);
         }
 
+        $saleAttributeCode = 'sale';
+        $addSaleAttributeToCollection = true;
+        try {
+            $saleAttribute = $this->attributeRepository
+                ->get(\Magento\Catalog\Api\Data\ProductAttributeInterface::ENTITY_TYPE_CODE, $saleAttributeCode);
+        } catch (\Magento\Framework\Exception\NoSuchEntityException $ex) {
+            $addSaleAttributeToCollection = false;
+        }
+
         $_collection = $this->_addProductAttributesAndPrices($_collection)
             ->addAttributeToSelect('special_from_date', true)
-            ->addAttributeToSelect('special_to_date', true)
-            ->addAttributeToSelect('sale', true)
-            ->addAttributeToSort(
-                'news_from_date',
-                'desc'
-            )
+            ->addAttributeToSelect('special_to_date', true);
+
+        if ($addSaleAttributeToCollection) {
+            $_collection->addAttributeToSelect($saleAttributeCode, true);
+        }
+
+        $_collection->addAttributeToSort(
+            'news_from_date',
+            'desc'
+        )
             ->addStoreFilter($this->getStoreId())
             ->setCurPage(1);
 
@@ -522,7 +543,6 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
 
         return $_collection;
     }
-
 
     /**
      * @param \Magento\Catalog\Model\ResourceModel\Product\Collection $_collection

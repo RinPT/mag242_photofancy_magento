@@ -1,0 +1,111 @@
+.datatranscw-payment-information-block {
+	margin: 0 0 3rem;
+}
+
+.datatranscw-transaction-payment-information-block {
+	margin: 3rem 0;
+	background-color: #f1f1f1;
+	padding: 1rem;
+}
+
+.datatranscw-transaction-information .tooltip,
+.datatranscw-payment-information-block .tooltip {
+	float: right;
+}
+
+@media (min-width: 768px) {
+	.datatranscw-transaction-information,
+	.datatranscw-transaction-captures {
+		float: left;
+		width: calc( (100%) * .5 - 30px );
+	}
+	
+	.datatranscw-transaction-history,
+	.datatranscw-transaction-refunds {
+		float: right;
+		width: calc( (100%) * .5 - 30px );
+	}
+}
+
+.datatranscw_form .admin__field .note,
+.datatranscw_form .admin__field div.mage-error {
+	clear: both;
+	padding: 5px 0;
+	margin-left: calc( (100%) * .33333333 + 30px );	
+}
+.datatranscw_form .admin__field .note {
+	font-size: 12px;
+	color: #303030;
+}
+.datatranscw_form .admin__field div.mage-error,
+.datatranscw_form td.value div.mage-error {
+	font-size: 12px;
+	color: #e02b27;
+}
+
+.datatranscw_form .html-field {
+	line-height: 3.2rem;
+}
+
+.datatranscw_form .multi-control:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.datatranscw_form .multi-control > div > div {
+	width: auto;
+	float: left;
+	margin-right: 5px;
+	margin-top: 0;
+}
+
+
+/*** CHECKOUT ***/
+
+.datatranscw_form .card-number .multi-control > div > div {
+	width: 100%;
+	float: none;
+	margin: 0;
+}
+
+.datatranscw_form .card-brand-image-color.brand-is-deselected {
+	display:none;
+}
+
+.datatranscw_form .card-brand-image-grey.brand-is-selected {
+	display:none;
+}
+
+.datatranscw_form .card-brand-image-selection {
+	margin-top: 5px;
+}
+
+.datatranscw_form .card-brand-image-selection img {
+	width:auto;
+	height: 20px;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.datatranscw_form .invalid-card-number,
+.datatranscw_form .invalid-cvc-number {
+	border-color: #ed8380;
+	background-image: url(../images/invalid.png) !important;
+	background-position: right 5px center;
+	background-repeat: no-repeat !important;
+}
+
+.datatranscw_form .valid-card-number,
+.datatranscw_form .valid-cvc-number {
+	background-image: url(../images/valid.png) !important;
+	background-position: right 5px center;
+	background-repeat: no-repeat !important;
+}
+
+.datatranscw_form .alias select {
+	width: 100%;
+}
+
+.datatranscw_form .alias select option:empty {
+	display: block;
+}

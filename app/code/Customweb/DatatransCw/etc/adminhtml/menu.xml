@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Customweb_DatatransCw::transactions" title="Datatrans Transactions" module="Customweb_DatatransCw" sortOrder="10" parent="Customweb_Base::sales_customweb" action="datatranscw/transaction" resource="Customweb_DatatransCw::transaction" />
+
+        <add id="Customweb_DatatransCw::config" title="Datatrans" module="Customweb_DatatransCw" sortOrder="100" parent="Customweb_Base::config" action="datatranscw/config" resource="Customweb_DatatransCw::config"/>
+    </menu>
+</config>

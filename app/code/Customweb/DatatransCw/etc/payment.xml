@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="datatranscw">
+            <label>Datatrans</label>
+        </group>
+    </groups>
+    <methods>
+        <method name="datatranscw_creditcard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_visa">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_mastercard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_americanexpress">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_diners">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_chinaunionpay">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_ideal">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_directebanking">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_dankort">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_directdebits">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_eps">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_jcb">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_bonuscard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_maestrouk">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_skrill">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_myone">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_paypal">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_postfinanceefinance">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_postfinancecard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_paysafecard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_cashticket">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_rekacard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_openinvoice">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_twint">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_swisscomeasypay">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_masterpass">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_mfcheckout">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_mfggiftcard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_byjunoinvoice">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_byjunoaccount">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_byjunosingleinvoice">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_byjunoinstallment">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_byjunoinstallment2">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="datatranscw_butterfly">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method>
+    </methods>
+</payment>

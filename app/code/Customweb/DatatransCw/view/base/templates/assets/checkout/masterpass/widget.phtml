@@ -1,0 +1,130 @@
+<div class="datatrans-masterpass-widget">
+		<style type="text/css">
+		.datatrans-wallet-button {
+			cursor:pointer;
+		}
+		#datatrans-masterpass-overlay {
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    bottom: 0;
+		    right: 0;
+		    background: #000;
+		    opacity: 0.8;
+		    z-index: 50000;
+		    filter: alpha(opacity=80);
+		}
+		#datatrans-masterpass-loading {
+			margin: 200px auto;
+  			font-size: 10px;
+  			position: relative;
+  			text-indent: -9999em;
+  			border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  			border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  			border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  			border-left: 1.1em solid #ffffff;
+  			-webkit-transform: translateZ(0);
+  			-ms-transform: translateZ(0);
+  			transform: translateZ(0);
+  			-webkit-animation: loadcw 1.1s infinite linear;
+  			animation: loadcw 1.1s infinite linear;
+		}
+		#datatrans-masterpass-loading,
+		#datatrans-masterpass-loading:after {
+		  border-radius: 50%;
+		  width: 10em;
+		  height: 10em;
+		}
+		@-webkit-keyframes loadcw {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		@keyframes loadcw {
+		  0% {
+		    -webkit-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    -webkit-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+	</style>
+
+	<img src="https://www.mastercard.com/mc_us/wallet/img/<?php echo $languageCode; ?>/<?php echo $countryCode; ?>/mcpp_wllt_btn_chk_180x042px.png"
+		alt="<?php echo $altText; ?>" 
+		class="datatrans-wallet-button"
+	    data-paymentmethod="MPW"  />
+	<div class="learn-more-text" style="margin-top: 5px;">
+		<a target="_blank" href="https://www.mastercard.com/mc_us/wallet/learnmore/<?php echo $languageCode; ?>/<?php echo $countryCode; ?>"" data-toggle="cw-modal" data-modal-dismiss="true" data-modal-css="datatrans-modal-masterpass-learnmore"><?php echo $learnMoreText; ?></a>
+	</div>
+	
+	<style type="text/css">
+	<?php echo $modalCss ?>
+	
+	@media (min-width: 774px) {
+		.datatrans-modal-masterpass-learnmore {
+			width: 704px;
+			left: 50%;
+			margin-left: -351px;
+		}
+	}
+	</style>
+	<script type="text/javascript">
+	<?php echo $modalJavascript ?>
+	</script>
+	
+	<script type="text/javascript">
+	<?php echo $jQueryJavascript; ?>
+	</script>
+	
+	<script type="application/javascript">
+	  var datatransMasterPassParams = {
+	    "merchantId":"<?php echo $merchantId; ?>",
+	    "currency": "<?php echo $currency; ?>",
+	    "amount": "<?php echo $amount; ?>",
+	    "refno": "<?php echo $refno; ?>",
+	    "sign": "<?php echo $sign; ?>",
+	    "uppDisplayShippingDetails": "yes",
+	    "uppReturnMaskedCC" : "yes",
+	    "confirmationUrl" : "<?php echo $updateUrl; ?>",
+	    "successUrl" : "<?php echo $dummyUrl; ?>",
+	    "errorUrl" : "<?php echo $errorUrl; ?>",
+	    "cancelUrl" : "<?php echo $dummyUrl; ?>"
+	  };
+	
+	  var datatransMasterpassCallback = function(event) {
+	  	if(event.type == 'opened') {
+	  		 var over = '<div id="datatrans-masterpass-overlay"><div  id="datatrans-masterpass-loading">Loading...</div></div>';
+        	jQuery(over).appendTo('body');
+        }
+        else if(event.type == 'loaded') {
+        	jQuery('#datatrans-masterpass-overlay').remove();
+        }	
+	  };
+	  
+	  var datatransJQueryLoaded = function() {
+	 	var script_tag = document.createElement('script');
+		script_tag.setAttribute("type", "text/javascript");
+		script_tag.setAttribute("src", "<?php echo $walletScriptUrl; ?>");
+		script_tag.onload = datatransWalletLoaded;
+		script_tag.onreadystatechange = function() { // IE hack
+			if (this.readyState == 'complete' || this.readyState == 'loaded') {
+				datatransWalletLoaded();
+			}
+		}
+		document.getElementsByTagName("head")[0].appendChild(script_tag);
+	  }
+		  
+	  var datatransWalletLoaded = function() { 
+	  	Wallet.configure(datatransMasterPassParams, datatransMasterpassCallback);
+	  }
+	
+	</script>
+</div>

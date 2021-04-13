@@ -326,6 +326,8 @@ return [
         'Amazon_Core' => 1,
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
+        'Customweb_Base' => 1,
+        'Customweb_DatatransCw' => 1,
         'Dhl_ShippingCore' => 1,
         'Dhl_UnifiedTracking' => 1,
         'Netresearch_ConfigFields' => 1,

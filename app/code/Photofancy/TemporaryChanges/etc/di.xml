@@ -6,6 +6,8 @@
         <plugin name="remove_layered_nav_category_filter" type="Photofancy\TemporaryChanges\Plugins\Catalog\Model\Layer\FilterList" sortOrder="1" disabled="false" />
     </type>
 
+    <preference for="Magento\Checkout\Block\Checkout\LayoutProcessor" type="Photofancy\TemporaryChanges\Block\Checkout\LayoutProcessor" />
+
     <type name="Photofancy\TemporaryChanges\Plugins\Catalog\Model\Layer\FilterList">
         <arguments>
             <argument name="categoryFilters" xsi:type="array">

@@ -8,6 +8,8 @@
 
     <preference for="Magento\Checkout\Block\Checkout\LayoutProcessor" type="Photofancy\TemporaryChanges\Block\Checkout\LayoutProcessor" />
 
+    <preference for="WeltPixel\SpeedOptimization\Observer\BlockAfterToHtml" type="Photofancy\TemporaryChanges\Observer\BlockAfterToHtml" />
+
     <type name="Photofancy\TemporaryChanges\Plugins\Catalog\Model\Layer\FilterList">
         <arguments>
             <argument name="categoryFilters" xsi:type="array">
